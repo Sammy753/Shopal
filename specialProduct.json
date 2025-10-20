@@ -1,0 +1,279 @@
+[
+  {
+    "id": 1,
+    "title": "Power Bank (Itel STAR 100)",
+    "category": "electronics",
+    "price": 465500,
+    "thumbnail": "./mediaspeP/power_bank.jpg",
+    "images": ["./mediaspeP/power_bank.jpg"],
+    "description": "The Itel STAR 100 Power Bank is a high-capacity portable charging device designed to keep your smartphones, tablets, and other gadgets powered all day. Built with fast-charging support and durable battery cells, it ensures efficiency, reliability, and long-lasting performance. Ideal for travel, work, or emergency use, this power bank is compact yet powerful, making it an essential everyday carry for tech-savvy users.",
+    "story": [
+      {
+        "title": "Reliable Power on the Go",
+        "content": "The Itel STAR 100 Power Bank is perfect for people constantly on the move. Whether you are traveling long distances, attending conferences, or commuting to work, this power bank provides the backup energy your devices need. Its high capacity allows multiple recharges for smartphones, ensuring you remain connected and productive without worrying about running out of battery. Its slim design also makes it portable, fitting easily into backpacks or handbags. No matter where life takes you, it ensures your devices never power down when you need them most."
+      },
+      {
+        "title": "Designed for Emergency Situations",
+        "content": "Unexpected power outages or long road trips can disrupt daily routines, but the Itel STAR 100 ensures you are never left stranded without power. Its fast-charging feature means even in emergencies, you can quickly power up devices like mobile phones, flashlights, or medical gadgets. For students preparing for exams, workers traveling late, or families during blackouts, it provides peace of mind. This power bank is not just a device—it’s an emergency tool that guarantees uninterrupted communication and access to essential services anytime, anywhere."
+      },
+      {
+        "title": "A Tech Lover’s Essential Companion",
+        "content": "For gadget lovers who use multiple devices daily, the Itel STAR 100 is a must-have. Its multiple charging ports allow simultaneous charging of phones, Bluetooth headphones, smartwatches, and even small tablets. This convenience ensures all your tech remains functional without the need to rotate charging schedules. The durable build ensures long-term use, while the sleek design complements modern lifestyles. With this power bank, users can enjoy gaming, streaming, or working without interruptions. It redefines convenience by turning charging into a seamless part of your daily routine."
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Tripod Stand with Phone Holder",
+    "category": "accessories",
+    "price": 500,
+    "thumbnail": "./mediaspeP/Rectangle(1).png",
+    "images": ["./mediaspeP/Rectangle(1).png"],
+    "description": "The Adjustable Tripod Stand with Phone Holder is designed for photography, vlogging, and video calls. Lightweight yet sturdy, it provides stable support for smartphones, ensuring professional-quality photos and videos. Its adjustable height and 360-degree rotation make it versatile for multiple shooting angles. Compact and foldable, it is easy to carry and set up anywhere.",
+    "story": [
+      {
+        "title": "Perfect for Content Creators",
+        "content": "For vloggers, YouTubers, and TikTok creators, this tripod stand is an indispensable tool. It allows users to shoot steady videos and photos without the need for handheld support. Adjustable height and flexible phone holder make it easy to capture the perfect angle, whether recording tutorials, unboxings, or live sessions. Its stable base reduces shaky footage, giving videos a professional finish. The portability means creators can carry it outdoors or set it up at home effortlessly. It empowers content creators to focus on storytelling rather than struggling with unstable recordings."
+      },
+      {
+        "title": "Boosting Productivity in Remote Work",
+        "content": "The tripod stand is not just for photography—it is also ideal for professionals working remotely. With the rise of online meetings and video conferencing, stable camera positioning has become essential. This tripod ensures you appear clearly on screen during work calls, interviews, or online classes. Adjustable angles help maintain good posture and eye contact, enhancing communication. It also doubles as a support for recording presentations or product demos. For modern professionals, it transforms any space into a functional mini studio for work and collaboration."
+      },
+      {
+        "title": "Family Fun and Everyday Use",
+        "content": "Families can also benefit from the tripod stand. It makes capturing group photos, family videos, and celebrations much easier. Instead of struggling with selfies or balancing phones, this tripod provides hands-free recording, ensuring no one is left out of the frame. It is also useful for fitness enthusiasts recording workout routines, students practicing presentations, or anyone experimenting with photography. Lightweight yet durable, it adapts to different needs. This versatility makes it more than just an accessory—it becomes a household companion for fun, learning, and memories."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Smartphone (iPhone 13)",
+    "category": "electronics",
+    "price": 6550,
+    "thumbnail": "./mediaspeP/Rectangle 111 (2).png",
+    "images": ["./mediaspeP/Rectangle 111 (2).png"],
+    "description": "The Apple iPhone 13 is a powerful smartphone with a sleek design, advanced dual-camera system, long-lasting battery, and the high-speed A15 Bionic chip. Featuring a Super Retina XDR display, 5G connectivity, and iOS ecosystem integration, it delivers unmatched performance for work, creativity, and entertainment. It is built to balance style, speed, and everyday convenience.",
+    "story": [
+      {
+        "title": "A Photographer’s Dream Device",
+        "content": "The iPhone 13 takes smartphone photography to another level. With its advanced dual-camera system, it captures stunning photos even in low light conditions. The cinematic mode brings a professional touch to videos, making them look like film productions. For photography enthusiasts, this device replaces bulky cameras by offering convenience and quality in one package. Travelers, bloggers, and social media users can rely on it to capture high-quality content anytime, anywhere. Its seamless integration with editing apps ensures you can shoot, edit, and share on the go with ease."
+      },
+      {
+        "title": "Built for Performance",
+        "content": "Powered by the A15 Bionic chip, the iPhone 13 handles multitasking, gaming, and heavy applications effortlessly. The 5G support allows blazing-fast internet speeds, ensuring smooth streaming, browsing, and downloads. Its long battery life means fewer interruptions, while optimized software ensures consistent performance over time. For professionals, students, and everyday users, it offers reliability and efficiency. Whether drafting emails, attending online meetings, or playing demanding games, the iPhone 13 adapts seamlessly to different needs. It is more than a smartphone—it’s a powerful pocket-sized computer."
+      },
+      {
+        "title": "Everyday Style and Connectivity",
+        "content": "With its sleek design and vibrant Super Retina display, the iPhone 13 is as stylish as it is functional. It seamlessly integrates into the Apple ecosystem, connecting with AirPods, Apple Watch, and MacBooks for smooth transitions between devices. Face ID ensures top-notch security, while iCloud makes storing and accessing files effortless. For students, families, or professionals, it is not just a phone but a lifestyle companion. It keeps users connected, entertained, and productive while looking elegant in every environment. The iPhone 13 is truly built for modern living."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Milo Drink Pack",
+    "category": "groceries",
+    "price": 50,
+    "thumbnail": "./mediaspeP/Rectangle 111 (3).png",
+    "images": ["./mediaspeP/Rectangle 111 (3).png"],
+    "description": "Nestle Milo is a chocolate malt drink packed with vitamins and minerals, providing a tasty energy boost for kids and adults. Loved for its rich flavor and nourishing content, it is suitable for breakfast, school, or after-sport refreshment. It supports active lifestyles with quick preparation and consistent taste.",
+    "story": [
+      {
+        "title": "A Favorite for Families",
+        "content": "Milo Drink Pack has become a household favorite for families across generations. Its unique chocolate malt flavor appeals to both children and adults, making it a versatile beverage for all. Parents love it because it offers nutritional benefits, while children enjoy it as a tasty treat. Whether served hot in the mornings, chilled in the afternoons, or blended into smoothies, it delivers consistent goodness. Its affordability and easy preparation make it accessible to households of all sizes. For many families, Milo is more than a drink—it’s part of daily tradition."
+      },
+      {
+        "title": "Fuel for Active Lifestyles",
+        "content": "For athletes and active individuals, Milo provides a quick and effective source of energy. Packed with vitamins, minerals, and malted goodness, it replenishes strength after workouts, school sports, or long workdays. Students often rely on Milo for an energy boost during study sessions, while workers enjoy it during breaks for refreshment. Its versatility allows it to be mixed with milk or water, depending on preference. By combining nutrition and taste, Milo has positioned itself as the go-to drink for anyone with a busy and energetic lifestyle."
+      },
+      {
+        "title": "A Cultural Symbol of Togetherness",
+        "content": "Beyond being just a drink, Milo has become a symbol of togetherness in many cultures. Families gather in the kitchen to prepare it during breakfast, children share it at school, and communities enjoy it during celebrations. Its rich taste connects generations, from grandparents to children, creating cherished moments over a shared beverage. For many, the nostalgic flavor of Milo brings back childhood memories of warmth, care, and love. This cultural significance makes it more than just a product—it’s a tradition passed from one generation to another."
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "White T-Shirt",
+    "category": "fashion",
+    "price": 4600,
+    "thumbnail": "./mediaspeP/Rectangle 111 (4).png",
+    "images": ["./mediaspeP/Rectangle 111 (4).png"],
+    "description": "The classic White T-Shirt is a timeless fashion piece made of soft, breathable cotton. Its comfortable fit and versatile design make it perfect for casual wear, layering, or styling with different outfits. Durable stitching ensures long-term use, making it a wardrobe essential for both men and women.",
+    "story": [
+      {
+        "title": "A Timeless Wardrobe Essential",
+        "content": "The White T-Shirt has stood the test of time as one of the most versatile fashion items in history. Whether paired with jeans, shorts, or layered under jackets, it complements virtually any outfit. Its simplicity makes it suitable for both casual and semi-formal occasions. For students, it’s a go-to daily wear option; for professionals, it can be styled into a smart-casual look. The soft cotton material ensures comfort, making it perfect for all-day use. Its durability and adaptability have cemented its place as a must-have clothing piece in every wardrobe."
+      },
+      {
+        "title": "Comfort and Practicality",
+        "content": "Beyond style, the White T-Shirt provides maximum comfort for everyday wear. Its breathable cotton material makes it ideal for hot climates, while its lightweight design allows ease of movement. It can be worn indoors for relaxation or outdoors for activities without compromising comfort. For athletes, it serves as casual sportswear; for travelers, it becomes an easy-to-pack clothing item. Its practicality ensures that no matter the occasion, it remains reliable. The White T-Shirt represents a balance of comfort, functionality, and understated elegance that never goes out of fashion."
+      },
+      {
+        "title": "Fashion Statement for All Ages",
+        "content": "The White T-Shirt transcends age, gender, and culture. From teenagers seeking trendy looks to adults preferring minimalist styles, it caters to diverse fashion needs. Designers often reinvent it with graphics or logos, but the plain version remains iconic for its simplicity. It allows self-expression through pairing with accessories, shoes, and jackets. Celebrities and everyday people alike have embraced it as a fashion staple. Its universal appeal proves that true style often lies in simplicity. With a White T-Shirt, anyone can express individuality while maintaining classic elegance."
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Blue Jeans",
+    "category": "fashion",
+    "price": 5500,
+    "thumbnail": "./mediaspeP/Rectangle 111 (5).png",
+    "images": ["./mediaspeP/Rectangle 111 (5).png"],
+    "description": "Durable blue denim jeans designed with a modern fit, combining comfort with style. Perfect for casual outings, work, or everyday wear, they feature strong stitching and versatile design that complements different tops and footwear choices. A wardrobe essential for both men and women.",
+    "story": [
+      {
+        "title": "Everyday Durability",
+        "content": "Blue Jeans are well-known for their strength and long-lasting quality, making them suitable for daily use. Crafted from sturdy denim fabric, they withstand rough use, whether during outdoor activities, travel, or work. Their durability ensures that they remain a long-term clothing investment. Unlike many fashion items that wear out quickly, these jeans grow more comfortable with each wash and wear. For students, workers, and casual wearers, they provide a dependable balance of practicality and style. They are not just pants—they are a lifestyle choice rooted in durability."
+      },
+      {
+        "title": "Versatility in Fashion",
+        "content": "What makes Blue Jeans special is their ability to adapt to countless styles. They can be paired with T-shirts for a casual look, button-up shirts for a smart-casual vibe, or hoodies for a streetwear outfit. For men and women alike, they remain a foundation for creative styling. Their universal appeal makes them suitable across generations, cultures, and fashion preferences. Blue Jeans never go out of style—they continue to evolve with trends while maintaining their classic charm. Owning a pair means owning endless outfit possibilities in one staple piece."
+      },
+      {
+        "title": "Comfort for Long Days",
+        "content": "Beyond style and durability, Blue Jeans provide comfort for long days. Designed with a modern fit, they balance snugness with flexibility, ensuring ease of movement. This makes them ideal for people who spend long hours commuting, working, or traveling. Their breathable yet strong fabric provides comfort in different climates. For people who value clothing that performs as well as it looks, Blue Jeans offer reliability. They have been a global fashion symbol for decades, loved equally by teenagers, adults, and professionals who want one item that truly does it all."
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Women’s Shoes",
+    "category": "Fashion",
+    "price": 4500,
+    "thumbnail": "./mediaspeP/Rectangle 111 (6).png",
+    "images": ["./mediaspeP/Rectangle 111 (6).png"],
+    "description": "Stylish women’s shoes designed for comfort and elegance, suitable for formal and casual occasions.",
+    "story": [
+      {
+        "title": "Everyday Comfort",
+        "content": "These women’s shoes are built with a focus on all-day comfort. Whether you’re heading to the office, attending a social gathering, or simply running errands, the cushioned sole ensures that your feet remain relaxed and supported. The design adapts to different walking styles, reducing fatigue and allowing you to move with ease. Unlike stiff, rigid shoes, these are breathable and lightweight, making them suitable for extended wear. The combination of comfort and function ensures that they become your go-to footwear for every occasion without compromising on elegance."
+      },
+      {
+        "title": "Versatile Style",
+        "content": "One of the strongest appeals of these shoes lies in their versatility. They are styled to complement both formal outfits like dresses and suits, as well as casual attire such as jeans or skirts. The neutral tones and elegant cuts make them a perfect accessory for multiple occasions, helping you transition seamlessly from work to social events. Whether paired with office attire or a weekend casual look, they add a touch of refinement that elevates your entire appearance. With these shoes, you don’t just wear footwear—you make a subtle yet confident fashion statement."
+      },
+      {
+        "title": "Durability & Craftsmanship",
+        "content": "Investing in good footwear is about more than just style—it’s about quality and durability. These women’s shoes are carefully crafted from long-lasting materials that withstand daily use while maintaining their shape and structure. The stitching is reinforced to prevent wear and tear, and the soles are built for traction and stability on various surfaces. This level of craftsmanship ensures that you won’t just enjoy them for one season but for many years to come. They’re shoes designed not only to look good but also to stand the test of time."
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Nivea Deodorant Spray",
+    "category": "Health & Beauty",
+    "price": 6000,
+    "thumbnail": "./mediaspeP/Rectangle 111 (7).png",
+    "images": ["./mediaspeP/Rectangle 111 (7).png"],
+    "description": "Nivea Men’s deodorant spray offering long-lasting freshness and protection against sweat and odor.",
+    "story": [
+      {
+        "title": "All-Day Freshness",
+        "content": "Nivea Deodorant Spray is designed for those who need reliable protection throughout the day. Its long-lasting formula combats sweat and odor, leaving you feeling fresh from morning to night. Unlike many deodorants that fade after a few hours, Nivea’s formula stays active, even during hot weather or after intense activity. Its lightweight mist spreads evenly on the skin, keeping you refreshed and confident in any situation. Whether you’re at work, the gym, or an evening outing, this deodorant ensures you maintain a clean, pleasant scent all day."
+      },
+      {
+        "title": "Gentle on Skin",
+        "content": "While strong in performance, Nivea deodorant is formulated to be gentle on the skin. It contains skin-friendly ingredients that prevent irritation, dryness, and rashes, making it suitable for everyday use. Many deodorants can leave your skin feeling tight or sticky, but Nivea ensures smooth comfort with every application. Its dermatologically tested composition is safe for sensitive skin, allowing you to wear it with confidence. For those who value personal care that balances effectiveness with gentleness, this deodorant is an ideal choice."
+      },
+      {
+        "title": "Trusted Brand Legacy",
+        "content": "Nivea has been a trusted name in skincare for over a century, known worldwide for delivering reliable, high-quality personal care products. This deodorant spray carries forward that legacy of excellence. It embodies Nivea’s commitment to developing products that combine science, care, and everyday practicality. When you choose Nivea, you’re not just buying a deodorant—you’re investing in a brand trusted by millions across the globe for generations. This assurance of quality makes it a dependable choice in your daily grooming routine."
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Blue Backpack",
+    "category": "Accessories",
+    "price": 650,
+    "thumbnail": "./mediaspeP/Rectangle 111 (8).png",
+    "images": ["./mediaspeP/Rectangle 111 (8).png"],
+    "description": "Spacious and durable blue backpack with multiple compartments, ideal for school, travel, or work.",
+    "story": [
+      {
+        "title": "Practical Storage",
+        "content": "The Blue Backpack is designed to handle the demands of modern life with ease. Featuring multiple compartments and organizational pockets, it provides enough space to store laptops, books, stationery, water bottles, and other essentials. This makes it ideal for students, professionals, or travelers who need to keep their items neatly arranged and within reach. The well-thought-out layout reduces clutter and ensures that you don’t waste time searching for smaller belongings when on the move."
+      },
+      {
+        "title": "Built for Durability",
+        "content": "Backpacks go through heavy daily use, and this one is built to withstand that pressure. Made with tough, tear-resistant fabric and reinforced stitching, it can carry heavy loads without losing its shape or integrity. The zippers are designed for long-lasting performance, gliding smoothly even after repeated use. Whether you’re carrying it to school, commuting to work, or traveling across cities, this backpack is dependable and sturdy, giving you confidence that your belongings are well protected."
+      },
+      {
+        "title": "Stylish & Comfortable",
+        "content": "Functionality doesn’t mean sacrificing style. The sleek blue design of this backpack gives it a modern, versatile look that suits both casual and professional settings. Adjustable padded straps make it comfortable to wear even for long periods, reducing strain on your shoulders. The lightweight build adds to the ease of carrying, making it perfect for daily use. With its combination of style, practicality, and comfort, the Blue Backpack is not just an accessory—it’s a reliable companion."
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Digital Wristwatch",
+    "category": "Accessories",
+    "price": 500.54,
+    "thumbnail": "./mediaspeP/Rectangle 111 (9).png",
+    "images": ["./mediaspeP/Rectangle 111 (9).png"],
+    "description": "Digital wristwatch with LED display, water resistance, and multiple timekeeping functions.",
+    "story": [
+      {
+        "title": "Modern Design",
+        "content": "The Digital Wristwatch blends sleek aesthetics with practical functionality. Its LED display is easy to read in both bright daylight and low-light conditions, ensuring visibility whenever you need to check the time. The minimal yet modern design makes it a versatile accessory that complements both casual and semi-formal outfits. Unlike traditional analog watches, this digital version provides a futuristic touch while still remaining stylish enough to wear daily."
+      },
+      {
+        "title": "Multi-Functional Utility",
+        "content": "This wristwatch goes beyond simply telling the time. It includes features such as a stopwatch, alarm, and date display, offering multiple uses in one device. These functions make it suitable not only for casual users but also for those who need precise timekeeping, like athletes or professionals managing tight schedules. Its multifunctionality adds value by combining convenience with efficiency, all packed into a lightweight, wearable design."
+      },
+      {
+        "title": "Durable & Water Resistant",
+        "content": "Durability is one of the key strengths of this digital wristwatch. Built with sturdy materials, it can withstand everyday wear and tear without losing performance. Its water-resistant capability ensures protection from accidental splashes, sweat, and light rain, making it reliable in diverse conditions. Whether you’re exercising, traveling, or simply going about your day, you can trust this watch to function without compromise. It’s built for everyday use, making it a dependable companion on your wrist."
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "RGB Gaming Mouse",
+    "category": "Electronics",
+    "price": 40.5,
+    "thumbnail": "./mediaspeP/Group 470.png",
+    "images": ["./mediaspeP/Group 470.png"],
+    "description": "Ergonomic RGB gaming mouse with customizable buttons, high DPI sensitivity, and colorful lighting effects.",
+    "story": [
+      {
+        "title": "Enhanced Gaming Precision",
+        "content": "The RGB Gaming Mouse is engineered for gamers who demand accuracy and speed. With its high DPI sensitivity, you can adjust the cursor speed to match your gameplay style, whether for precise sniping in shooting games or fast-paced action in competitive arenas. Its smooth response time ensures that your actions translate seamlessly on-screen, giving you a competitive edge. For gamers, this mouse isn’t just an accessory—it’s an essential tool for victory."
+      },
+      {
+        "title": "Customizable Controls",
+        "content": "This gaming mouse comes with programmable buttons that let you assign different functions, macros, or shortcuts for a more personalized experience. Whether you’re playing MMOs, strategy games, or even working on productivity tasks, customizable buttons save time and enhance control. Combined with its ergonomic design that reduces strain during long gaming sessions, it ensures both comfort and efficiency. This feature-rich flexibility is why it’s ideal for both professional and casual gamers."
+      },
+      {
+        "title": "RGB Lighting Effects",
+        "content": "Adding a visual flair to its performance, the RGB Gaming Mouse features colorful lighting effects that enhance your gaming setup. The lights can often be customized to different modes, such as breathing, pulsing, or static colors, to match your style. These effects don’t just look great—they create an immersive gaming atmosphere that enhances your overall experience. With a balance of high functionality and striking aesthetics, this mouse stands out as a must-have accessory."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Smart TV / Streaming Device",
+    "category": "Electronics",
+    "price": 4200,
+    "thumbnail": "./mediaspeP/Rectangle 111 (10).png",
+    "images": ["./mediaspeP/Rectangle 111 (10).png"],
+    "description": "Smart TV with streaming features, offering access to apps, online entertainment, and HD picture quality.",
+    "story": [
+      {
+        "title": "Immersive Entertainment",
+        "content": "The Smart TV is designed to transform your living room into a home theater. With high-definition picture quality, vivid colors, and sharp contrast, it delivers an immersive viewing experience for movies, shows, and sports. Every detail is brought to life on screen, whether you’re watching the latest blockbuster or streaming a live event. The large display ensures that you enjoy content as it was meant to be seen—clear, vibrant, and cinematic."
+      },
+      {
+        "title": "Streaming Convenience",
+        "content": "Unlike traditional TVs, this Smart TV integrates streaming services and apps directly into its interface. With access to platforms like YouTube, Netflix, or music apps, you no longer need external devices to enjoy digital entertainment. The user-friendly interface makes it easy to browse, select, and enjoy your favorite content instantly. For families, it’s a central hub for entertainment, giving everyone something to enjoy—whether that’s movies, gaming, or music."
+      },
+      {
+        "title": "Modern Connectivity",
+        "content": "This Smart TV offers multiple connectivity options, including HDMI, USB, and wireless casting, making it compatible with a wide range of devices. Whether you want to connect gaming consoles, laptops, or smartphones, it provides flexibility for different needs. Its built-in Wi-Fi ensures seamless streaming, while the durable build guarantees long-lasting reliability. With its blend of modern features and robust performance, this Smart TV is a perfect upgrade for any household looking for both entertainment and practicality."
+      }
+    ]
+  }
+
+]
