@@ -34,7 +34,7 @@
                             </a>
                         </div>
                         <div class="order-nav">
-                            <a href="">
+                            <a href="./ordertrack.html">
                                 <img src="./media/Vector.png" alt="">
                                 <p>Order</p>
                             </a>
@@ -66,12 +66,13 @@
                 </div>
                 <div class="ul-navbar">
                     <ul>
-                        <li><a href="./index.html">CLOTHINGS</a></li>
-                        <li><a href="./customerreviews.html">SHOES</a></li>
-                        <li><a href="./product.html">ELECTRONICS</a></li>
-                        <li><a href="">GADGETS</a></li>
-                        <li><a href="">JEWELRY</a></li>
-                        <li><a href="">HEALTH & MEDICALS</a></li>
+                        <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                        <li><a href="./SHOES.html">SHOES</a></li>
+                        <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                        <li><a href="./GADGETS.html">GADGETS</a></li>
+                        <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                        <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                        <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
                     </ul>
                 </div>
             </nav>
@@ -186,14 +187,35 @@
             localStorage.setItem("itemBought", JSON.stringify(itemBought))
         }
 
+        
+        const CartAdder = document.querySelector("#Cart-adder")
+
+        if (Cart.length > 0) {
+            CartAdder.innerHTML = `<p>${Adder(Cart)}</p>`;
+
+        }
+
+        function Adder(Cart){
+            if (Cart.length > 0){
+                CartAdder.classList.remove("hidden")
+                let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
+                return cartShower;
+            }
+
+            saveToLocalStorage()
+
+        }
+
         DisplayProducts(itemBought)
         if (itemBought.length > 0) {
             DisplayProducts(itemBought)
         }else{
             AllProduct.classList.add("no-cart")
             AllProduct.innerHTML = `
+                
+                <button class="but" onclick="window.location.href= 'index.html'">Shop Now</button>
                 <p class="sapaa">
-                    You have clear history werey😭😂. Go to shop to spend your last card and embrace sapa😂🤣
+                    You have clear order history werey😭😂. Go to shop to spend your last card and embrace sapa😂🤣
                 </p>
             `
             Null.innerHTML = ""
@@ -242,7 +264,7 @@
                         
                     `
                     Total.innerHTML = `
-                    <p>You've bought ${adder(itemBought)} products worth ($${(subtotal(Cart))})</p>`
+                    <p class="history-content">You've bought ${adder(itemBought)} products worth ($${(subtotal(Cart))})</p>`
                     let checkout = ProceedtoPayment.querySelector(".checkout")
                     checkout.addEventListener("click", () => {
                         itemBought = []; 

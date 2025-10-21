@@ -34,7 +34,7 @@
                             </a>
                         </div>
                         <div class="order-nav">
-                            <a href="">
+                            <a href="./ordertrack.html">
                                 <img src="./media/Vector.png" alt="">
                                 <p>Order</p>
                             </a>
@@ -66,12 +66,13 @@
                 </div>
                 <div class="ul-navbar">
                     <ul>
-                        <li><a href="./index.html">CLOTHINGS</a></li>
-                        <li><a href="./customerreviews.html">SHOES</a></li>
-                        <li><a href="./product.html">ELECTRONICS</a></li>
-                        <li><a href="">GADGETS</a></li>
-                        <li><a href="">JEWELRY</a></li>
-                        <li><a href="">HEALTH & MEDICALS</a></li>
+                        <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                        <li><a href="./SHOES.html">SHOES</a></li>
+                        <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                        <li><a href="./GADGETS.html">GADGETS</a></li>
+                        <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                        <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                        <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
                     </ul>
                 </div>
             </nav>
@@ -92,19 +93,19 @@
                 <div>
                     
                     <div class="heading"></div>
-                    <form action="" onsubmit="">
+                    <form action="">
                         <div class="Card">
 
                             <label for="">
                                 <h2>Cardholder Name</h2>
-                                <input type="text" placeholder="Enter your name" required/>
+                                <input class="userInput" type="text" placeholder="Enter your name" required/>
                                 
                             </label>
 
                             <label for="">
 
                                 <h2>Card Number</h2>
-                                <input type="number" placeholder="Enter your Card Number" required/>
+                                <input class="userInput" type="number" placeholder="Enter your Card Number" required/>
                                 
                             </label>
 
@@ -115,14 +116,14 @@
                                 <h2>Expires</h2>
 
                                 <label for="">
-                                    <input type="date" placeholder="Date Expires" required/>
+                                    <input class="userInput" type="date" placeholder="Date Expires" required/>
                                 </label>
                             </div>
 
                             <div>
                                 <h2>CVV</h2>
                                 <label for="">
-                                    <input type="number" placeholder="CVV" required/>
+                                    <input class="userInput" type="number" placeholder="CVV" required/>
                                 </label>
                             </div>
 
@@ -131,11 +132,11 @@
                         
 
                         <label for="" class="checkboxIn">
-                            <input type="checkbox" required/>
+                            <input id="checkboxd" type="checkbox" required/>
                             <p>Set as default</p>
                         </label>
 
-                        <button class="Buy-now">Buy Now</button>
+                        <button class="Buy-now" type="button">Buy Now</button>
 
                     </form>
                 </div>
@@ -220,6 +221,8 @@
         const CartAdder = document.querySelector("#Cart-adder")
         const heading = document.querySelector(".heading")
         const Buynow = document.querySelector(".Buy-now")
+        const inputs = document.querySelectorAll(".userInput")
+        const checkbox = document.querySelector("#checkboxd")
 
 
         let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -233,14 +236,40 @@
         
 
         Buynow.addEventListener("click", () => {
-            window.location.href = `done.html`;
-            DeleteEvent(Cart)
-            function DeleteEvent(title){
-                itemBought = [...itemBought, ...Cart]
-                saveToLocalStorage()
-                Cart = []
-                saveToLocalStorage()
+            let AllField = true 
+            inputs.forEach((input) => {
+                if ( input.value.trim() === ""){
+                    input.classList.add("error")
+                    // checkbox.classList.add("error")
+                    AllField = false
+                }else{
+                    input.classList.remove("error")
+                    // checkbox.classList.remove("error")
+                    // AllField = true
+                }
+            })
+
+            if (!checkbox.checked) {
+                checkbox.classList.add("error");
+                AllField = false;
+            } else {
+                checkbox.classList.remove("error");
             }
+
+            if(AllField){
+                window.location.href = `done.html`;
+                DeleteEvent(Cart)
+                function DeleteEvent(title){
+                    itemBought = [...itemBought, ...Cart]
+                    saveToLocalStorage()
+                    Cart = []
+                    saveToLocalStorage()
+                }
+            }
+            else{
+                alert("You need to fill all fucking dawm input werey")
+            }
+            
         })
         
         if (Cart.length > 0 ) {

@@ -512,7 +512,7 @@ footer p{
     border-radius: 8px;
     margin-top: 5px;
 }
-.Address input, .AddressR:focus{
+.Address input, .AddressR input:focus{
     outline: none;
 }
 .AddressR{
@@ -662,4 +662,7 @@ input::placeholder{
 }
 .Confirm:hover{
     background-color: #101828;
+}
+.name-phoneNo .error, .Address .error, .AddressR .error, .checkboxIn .error, .card-No .error, .Card .error, .checkboxIn .error{
+    border: 1px solid red;
 }

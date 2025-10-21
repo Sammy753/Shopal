@@ -34,7 +34,7 @@
                             </a>
                         </div>
                         <div class="order-nav">
-                            <a href="">
+                            <a href="./ordertrack.html">
                                 <img src="./media/Vector.png" alt="">
                                 <p>Order</p>
                             </a>
@@ -66,12 +66,13 @@
                 </div>
                 <div class="ul-navbar">
                     <ul>
-                        <li><a href="./index.html">CLOTHINGS</a></li>
-                        <li><a href="./customerreviews.html">SHOES</a></li>
-                        <li><a href="./product.html">ELECTRONICS</a></li>
-                        <li><a href="">GADGETS</a></li>
-                        <li><a href="">JEWELRY</a></li>
-                        <li><a href="">HEALTH & MEDICALS</a></li>
+                        <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                        <li><a href="./SHOES.html">SHOES</a></li>
+                        <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                        <li><a href="./GADGETS.html">GADGETS</a></li>
+                        <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                        <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                        <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
                     </ul>
                 </div>
             </nav>
@@ -195,14 +196,15 @@
         }else{
             AllProduct.classList.add("no-cart")
             AllProduct.innerHTML = `
+                <button class="but" onclick="window.location.href= 'index.html'">Shop Now</button>
                 <p class="sapaa">
-                    You get no Product for Cart werey😭😂. Go to shop to spend your last card and embrace sapa😂🤣
+                    No Product available werey😭😂. You can check order to view ordered product or go to shop to spend your last card and embrace sapa😂🤣
                 </p>
             `
             Null.innerHTML = ""
             document.querySelector(".imageP").innerHTML = ""
             
-            document.querySelector(".Track").innerHTML = `<button class="but" onclick="window.location.href= 'ordertrack.html'">Check History</button>`
+            // document.querySelector(".Track").innerHTML = `<button class="but" onclick="window.location.href= 'index.html'">Shop Now</button>`
         }
 
         saveToLocalStorage()
@@ -270,7 +272,7 @@
                 btnTwo.addEventListener("click", () => {
                     cartDecrement(item.id, item.title, item.price, item.category, item.thumbnail, item.images, item.rating, item.description, item.story);
                     DisplayProducts(Cart)
-                    // CartAdderMESSAGE();
+                    CartSubMESSAGE();
                 })
 
                 let Delete = productCard.querySelector(".Delete")
@@ -380,8 +382,7 @@
             const CartAdderMessage = document.getElementById("Cart-adder-message")
             CartAdderMessage.innerHTML = `
                 <div class="Cart-Adder-Message">
-                    <p class="hidden2 message">Product added successfully ✅. Continue shopping or check your cart to proceed to payment
-                    </p>
+                    <p class="hidden2 message">Product remove successfully ✅</p>
                 </div>
             `;
 
@@ -394,8 +395,7 @@
             const CartAdderMessage = document.getElementById("Cart-adder-message")
             CartAdderMessage.innerHTML = `
                 <div class="Cart-Adder-Message">
-                    <p class="hidden2 message">Product added successfully ✅. Continue shopping or check your cart to proceed to payment
-                    </p>
+                    <p class="hidden2 message">Product added successfully ✅</p>
                 </div>
             `;
 
