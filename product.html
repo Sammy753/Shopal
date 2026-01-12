@@ -76,12 +76,60 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="Cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        
+        <div class="navpop hidden"></div>
     </header>
     <section>
 
@@ -189,257 +237,501 @@
     </footer>
     <!-- <img src="${mainStory.image}" alt="" /> -->
     <!-- Load your JS first -->
-<script src="./product.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-<script>
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    const title = params.get("title")
-    const CartAdderMessage = document.querySelector(".Cart-adder-message")
-    const CartAdder = document.querySelector("#Cart-adder")
-    const storys = document.querySelector(".storys")
-    const productDescription = document.querySelector(".product-description")
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+        const title = params.get("title")
+        const CartAdderMessage = document.querySelector(".Cart-adder-message")
+        const CartAdder = document.querySelectorAll(".Cart-adder")
+        const storys = document.querySelector(".storys")
+        const productDescription = document.querySelector(".product-description")
+        const navpop = document.querySelector(".navpop")
+        const hamburger = document.querySelector(".Hamburger")
+        const hamburgerLap = document.querySelector(".Hamburger-lap")
+        let setcheck = false
 
-    let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
+        const ProfileImage = document.querySelector(".Profile-image")
 
-    function saveToLocalStorage(){
-        localStorage.setItem("Cart", JSON.stringify(Cart))
-    }
+        // import { createClient } from "https://esm.sh/@supabase/supabase-js";
 
-    if (Cart.length > 0) {
-       CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
-    }
-    
-    async function showDetail() {
-        const res = await fetch(`./allProduct.json`)
-        const resTwo = await fetch(`./specialProduct.json`)
-        const Res = await res.json()
-        console.log(Res.map(item => item.title))
-        const ResTwo = await resTwo.json()
-        const allRes = [...Res, ...ResTwo]
-        const item = allRes.find(product => product.id == id && product.title == title )
-        console.log(item)
-        // console.log(Object.keys(item))
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
+
+        // const {data: {session}} = await supabaseClient.auth.getSession()
+
+        // let userName;
+        // if(session){
+        //     const UserName = session.user.user_metadata.fullName;
+        //     console.log("User name:", UserName);
+
+        //     userName = UserName
+        // }
+
+
+        async function Check() {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                console.log(data)
+                // alert("log in alaye")
+                ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                    
+                let SignIn = ProfileImage.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+            }else{
+
+                let userName = data.user.user_metadata.userName
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage.innerHTML= `<div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage.querySelector(".logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            }
+            
+        }
+
+        async function Check2(ProfileImage2) {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                // alert("log in alaye")
+                // ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                
+                ProfileImage2.innerHTML = `<button class="SignIn">Sign in</button>`
+                
+                let SignIn = ProfileImage2.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+
+            }else{
+
+                let userName = data.user.user_metadata.userName || "User"
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage2.innerHTML= `<hr /><div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="Logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>Logout</p>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage2.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage2.querySelector(".Logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            
+            }
+        }
         
-        const productDetails = document.querySelector(".product-details")
-        productDetails.innerHTML = ""
-        const showImage = item.images.map(img => `<img src="${img}" class="small-image-box" onclick="changeImage('${img}')" />`).join('')
-        productDetails.innerHTML = `
-        
-            <div class="image-box">
-                <img src="${item.thumbnail}" class="main-image-box" id="mainImage" alt="">
-                <div class="small-image-box">
-                    ${showImage}
-                </div>
-            </div>
-            <div class="product-content">
-                <div class="product-title">
-                    <h2>${item.title}</h2>
-                    <div class="product-review">
-                        <div class="Review">
-                            <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
-                            <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
-                            <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
-                            <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
-                            <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+        Check();
+
+        let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
+
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        if (Cart.length > 0) {
+        CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
+        }
+
+                
+        hamburgerLap.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>            
+                    </div>
+                `
+
+            }else{
+                navpop.classList.add("hidden")
+                
+                setcheck = false
+            }
+
+        })
+
+
+        hamburger.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="location-And-Order">
+                            <div class="location-nav">
+                                <a href="">
+                                    <img src="./media/reliance_hmo 1.png" alt="">
+                                    <p>Uyo</p>
+                                </a>
+                            </div>
+                            <div class="order-nav">
+                                <a href="./ordertrack.html">
+                                    <img src="./media/Vector.png" alt="">
+                                    <p>Order</p>
+                                </a>
+                            </div>
                         </div>
-                        <p>( 21 reviews )   | ( 124 Orders )</p>
+                        <hr/>
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>
+                        <div class="Profile-image2"></div>
+                    
                     </div>
-                </div>
-                <hr>
-                <div class="product-price">
-                    <h2>$${item.price}</h2>
-                    <h4 style="text-decoration: line-through; color: #98A2B3;">$${item.price*1.2}</h4>
-                    <h4>You save $${item.price*1.2-item.price}</h4>
-                </div>
-                <hr>
-                <div class="order-details">
-                    <div class="location">
-                        <img src="./mediaspeP/Vector.png" alt="">
-                        <p>Uyo, Akwa Ibom</p>
-                    </div>
-                    <h3>Shipping : $${item.price/500}</h3>
-                    <p>From lagos to Akwaibom</p>
-                    <p>Estimated delivery on August 10</p>
-                </div>
-                <div class="product-button">
-                    <button class="Add-to-Cart">Add to Cart</button>
-                    <a href="./cart.html">
-                        <button class="Buy-Now">Buy Now</button>
-                    </a>
-                </div>
-            </div>
-        `
-        saveToLocalStorage()
+                `
 
-        const Description = document.querySelector(".Description")
-        const CustomerReviews = document.querySelector(".CustomerReviews")
-        const Specifications = document.querySelector(".Specifications")
-        const Warranty = document.querySelector(".Warranty")
-        Description.addEventListener("click", () => {
-                window.location.href = `product.html?id=${item.id}&title=${item.title}`;
+                
+                const ProfileImage2 = navpop.querySelector(".Profile-image2")
+                    
+                Check2(ProfileImage2)
+
+            }else{
+                navpop.classList.add("hidden")
+                // setcheck = false
+            }
+
+            setcheck = true
         })
 
-        CustomerReviews.addEventListener("click", () => {
-                window.location.href = `customerreviews.html?id=${item.id}&title=${item.title}`;
-        })
+        navpop.addEventListener("click", () => {
+            navpop.classList.add("hidden");
+            setcheck = false;
+        });
 
-        Specifications.addEventListener("click", () => {
-                window.location.href = `specifications.html?id=${item.id}&title=${item.title}`;
-        })
 
-        Warranty.addEventListener("click", () => {
-                window.location.href = `warranty.html?id=${item.id}&title=${item.title}`;
-        })
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        if (Cart.length > 0) {
+            CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
+        }
         
-        productDescription.innerHTML = `
-
-                <img src="${item.thumbnail}" class="product-description-img" alt="${item.title}" />
-                <div class="product-description-content">
-                    <h2>${item.title} &#8482;</h2>
-                    <p>${item.description}</p>                
-                </div>
+        async function showDetail() {
+            const res = await fetch(`./allProduct.json`)
+            const resTwo = await fetch(`./specialProduct.json`)
+            const Res = await res.json()
+            console.log(Res.map(item => item.title))
+            const ResTwo = await resTwo.json()
+            const allRes = [...Res, ...ResTwo]
+            const item = allRes.find(product => product.id == id && product.title == title )
+            console.log(item)
+            // console.log(Object.keys(item))
             
-            `
-
-        saveToLocalStorage()
-
-        let btn = productDetails.querySelector(".Add-to-Cart")
-        btn.addEventListener("click", () => {
-            addToCart(item.id, item.title, item.price);
-            CartAdderMESSAGE();
-            // alert("ghkjhf")
-            saveToLocalStorage()
-        })
-        storys.innerHTML = "";
-
-        saveToLocalStorage()
-        const mainStory = item.story.map(item => {return item})
-        mainStory.map((item) => {
-           
-            storys.innerHTML += `
-                <div class="story-content">
-                    <div class="story-main-content">
+            const productDetails = document.querySelector(".product-details")
+            productDetails.innerHTML = ""
+            const showImage = item.images.map(img => `<img src="${img}" class="small-image-box" onclick="changeImage('${img}')" />`).join('')
+            productDetails.innerHTML = `
+            
+                <div class="image-box">
+                    <img src="${item.thumbnail}" class="main-image-box" id="mainImage" alt="">
+                    <div class="small-image-box">
+                        ${showImage}
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="product-title">
                         <h2>${item.title}</h2>
-                        <p>${item.content}</p>  
+                        <div class="product-review">
+                            <div class="Review">
+                                <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+                                <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+                                <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+                                <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+                                <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
+                            </div>
+                            <p>( 21 reviews )   | ( 124 Orders )</p>
+                        </div>
                     </div>
-                    <img src="${item.thumbnail}" alt="" />
+                    <hr>
+                    <div class="product-price">
+                        <h2>$${item.price}</h2>
+                        <h4 style="text-decoration: line-through; color: #98A2B3;">$${(item.price*1.2).toFixed(2)}</h4>
+                        <h4>You save $${(item.price*1.2-item.price).toFixed(2)}</h4>
+                    </div>
+                    <hr>
+                    <div class="order-details">
+                        <div class="location">
+                            <img src="./mediaspeP/Vector.png" alt="">
+                            <p>Uyo, Akwa Ibom</p>
+                        </div>
+                        <h3>Shipping : $${(item.price/500).toFixed(3)}</h3>
+                        <p>From lagos to Akwaibom</p>
+                        <p>Estimated delivery on August 10</p>
+                    </div>
+                    <div class="product-button">
+                        <button class="Add-to-Cart">Add to Cart</button>
+                        <a href="./cart.html">
+                            <button class="Buy-Now">Buy Now</button>
+                        </a>
+                    </div>
                 </div>
-
-            `
-        })
-
-        const similarProduct = document.querySelector(".similar-product")
-        SimilarProduct = allRes.filter(prod => prod.category === item.category)
-        SimilarProduct.map((product) => {
-            let productCard = document.createElement("div")
-            productCard.classList.add("productCard")
-            productCard.innerHTML = `
-            <img src="${product.thumbnail}" class="productCard-img" alt="">
-            <div class="card-content">
-                <p class="card-p">${product.title}</p>
-                <h4 class="card-h4">$${product.price}</h4>
-                <img src="./media/stars.png" class="rate" alt="">
-            </div>
             `
             saveToLocalStorage()
 
-            similarProduct.appendChild(productCard)
-            productCard.addEventListener("click", () => {
-                window.location.href = `product.html?id=${product.id}&title=${product.title}`;
+            const Description = document.querySelector(".Description")
+            const CustomerReviews = document.querySelector(".CustomerReviews")
+            const Specifications = document.querySelector(".Specifications")
+            const Warranty = document.querySelector(".Warranty")
+            Description.addEventListener("click", () => {
+                    window.location.href = `product.html?id=${item.id}&title=${item.title}`;
             })
-        })
-        
-        saveToLocalStorage()
-    }
 
-    function DisplayProducts(Products){
-        AllProduct.innerHTML = "";
-        Products.map((item, index, arr) => {
-            let productCard = document.createElement("div")
-            productCard.classList.add("productCard")
-            productCard.innerHTML = `
-            <img src="${item.thumbnail}" class="productCard-img" alt="">
-            <div class="card-content">
-                <p class="card-p">${item.title}</p>
-                <h4 class="card-h4">$${item.price}</h4>
-                <img src="./media/stars.png" class="rate" alt="">
-                <button class="card-button">ADD TO CART</button>
-            </div>
-            `
+            CustomerReviews.addEventListener("click", () => {
+                    window.location.href = `customerreviews.html?id=${item.id}&title=${item.title}`;
+            })
+
+            Specifications.addEventListener("click", () => {
+                    window.location.href = `specifications.html?id=${item.id}&title=${item.title}`;
+            })
+
+            Warranty.addEventListener("click", () => {
+                    window.location.href = `warranty.html?id=${item.id}&title=${item.title}`;
+            })
             
-            AllProduct.appendChild(productCard)
-            productCard.addEventListener("click", () => {
-                window.location.href = `product.html?id=${item.id}&title=${item.title}`;
-            })
+            productDescription.innerHTML = `
 
-            let btn = productCard.querySelector(".card-button")
-            btn.addEventListener("click", (e) => {
-                e.stopPropagation(); // ⛔ stops card click
-                addToCart(item.id, item.title, item.price, item.category, item.thumbnail, item.images, item.rating, item.description, item.story);
+                    <img src="${item.thumbnail}" class="product-description-img" alt="${item.title}" />
+                    <div class="product-description-content">
+                        <h2>${item.title} &#8482;</h2>
+                        <p>${item.description}</p>                
+                    </div>
+                
+                `
+
+            saveToLocalStorage()
+
+            let btn = productDetails.querySelector(".Add-to-Cart")
+            btn.addEventListener("click", () => {
+                addToCart(item.id, item.title, item.price);
                 CartAdderMESSAGE();
+                // alert("ghkjhf")
+                saveToLocalStorage()
             })
-        })
-        saveToLocalStorage()
-    }
-    
-    
-    function addToCart(id, title, price, category, thumbnail, images, rating, description, story){
-        let checkProduct = Cart.find(prod => prod.id == id && prod.title == title)
-        if (checkProduct){
-            checkProduct.quantity++;
+            storys.innerHTML = "";
+
+            saveToLocalStorage()
+            const mainStory = item.story.map(item => {return item})
+            mainStory.map((item) => {
             
-        }
-        else{
-            Cart.push({ id, title, price, category, thumbnail, images, rating, description, story, quantity: 1})
+                storys.innerHTML += `
+                    <div class="story-content">
+                        <div class="story-main-content">
+                            <h2>${item.title}</h2>
+                            <p>${item.content}</p>  
+                        </div>
+                        <img src="${item.thumbnail}" alt="" />
+                    </div>
 
-        }
-        CartAdder.innerHTML = `<p>${adder(Cart)}</p>`
+                `
+            })
 
-        saveToLocalStorage()
-        // CartAdderMESSAGE()
+            const similarProduct = document.querySelector(".similar-product")
+            SimilarProduct = allRes.filter(prod => prod.category === item.category)
+            SimilarProduct.map((product) => {
+                let productCard = document.createElement("div")
+                productCard.classList.add("productCard")
+                productCard.innerHTML = `
+                <img src="${product.thumbnail}" class="productCard-img" alt="">
+                <div class="card-content">
+                    <p class="card-p">${product.title}</p>
+                    <h4 class="card-h4">$${product.price}</h4>
+                    <img src="./media/stars.png" class="rate" alt="">
+                </div>
+                `
+                saveToLocalStorage()
+
+                similarProduct.appendChild(productCard)
+                productCard.addEventListener("click", () => {
+                    window.location.href = `product.html?id=${product.id}&title=${product.title}`;
+                })
+            })
+            
+            saveToLocalStorage()
+        }
+
+        function DisplayProducts(Products){
+            AllProduct.innerHTML = "";
+            Products.map((item, index, arr) => {
+                let productCard = document.createElement("div")
+                productCard.classList.add("productCard")
+                productCard.innerHTML = `
+                <img src="${item.thumbnail}" class="productCard-img" alt="">
+                <div class="card-content">
+                    <p class="card-p">${item.title}</p>
+                    <h4 class="card-h4">$${item.price}</h4>
+                    <img src="./media/stars.png" class="rate" alt="">
+                    <button class="card-button">ADD TO CART</button>
+                </div>
+                `
+                
+                AllProduct.appendChild(productCard)
+                productCard.addEventListener("click", () => {
+                    window.location.href = `product.html?id=${item.id}&title=${item.title}`;
+                })
+
+                let btn = productCard.querySelector(".card-button")
+                btn.addEventListener("click", (e) => {
+                    e.stopPropagation(); // ⛔ stops card click
+                    addToCart(item.id, item.title, item.price, item.category, item.thumbnail, item.images, item.rating, item.description, item.story);
+                    CartAdderMESSAGE();
+                })
+            })
+            saveToLocalStorage()
+        }
         
-        CartAdderMessage.classList.remove("hidden")
-    }
+        
+        async function addToCart(id, title, price, category, thumbnail, images, rating, description, story){
+            const { data: userData } = await supabaseClient.auth.getUser();
+            if (!userData.user){
+                alert("Sign in to add items to cart dude")
+                return;
+            } // user not logged in, skip DB sync
 
-    function adder(Cart){
-        if (Cart.length > 0){
-            CartAdder.classList.remove("hidden")
-            let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
-            return cartShower;
+            const userId = userData.user.id;
+
+            let checkProduct = Cart.find(prod => prod.id == id && prod.title == title)
+            if (checkProduct){
+                checkProduct.quantity++;
+                
+            }
+            else{
+                Cart.push({ id, title, price, category, thumbnail, images, rating, description, story, quantity: 1})
+
+            }
+            CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
+
+            saveToLocalStorage()
+            // CartAdderMESSAGE()
+            
+            CartAdderMessage.classList.remove("hidden")
+
+            // 2️⃣ Sync with Supabase if user is logged in
+            
+
+            try {
+                // Check if item already exists in DB
+                const { data: existingItem } = await supabaseClient
+                    .from("cart_items")
+                    .select("*")
+                    .eq("user_id", userId)
+                    .eq("product_id", id)
+                    .single();
+
+                if (existingItem) {
+                    // Update quantity in DB
+                    await supabaseClient
+                        .from("cart_items")
+                        .update({ quantity: existingItem.quantity + 1 })
+                        .eq("id", existingItem.id);
+                } else {
+                    // Insert new item in DB
+                    await supabaseClient.from("cart_items").insert({
+                        user_id: userId,
+                        product_id: id,
+                        quantity: 1
+                    });
+                }
+            } catch (err) {
+                console.error("Failed to sync cart with database:", err.message);
+            }
+        }
+
+        function adder(Cart){
+            if (Cart.length > 0){
+                CartAdder.forEach(add => add.classList.remove("hidden"))
+                let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
+                return cartShower;
+            }
+
+            saveToLocalStorage()
+        }
+
+
+        function CartAdderMESSAGE(){
+            const CartAdderMessage = document.getElementById("Cart-adder-message")
+            CartAdderMessage.innerHTML = `
+                <div class="Cart-Adder-Message">
+                    <p class="hidden2 message">Product added successfully ✅. Continue shopping or check your cart to proceed to payment
+                    </p>
+                </div>
+            `;
+            
+            saveToLocalStorage()
+        }
+
+        function changeImage(img) {
+            document.getElementById("mainImage").src = img
         }
 
         saveToLocalStorage()
-    }
 
-
-    function CartAdderMESSAGE(){
-        const CartAdderMessage = document.getElementById("Cart-adder-message")
-        CartAdderMessage.innerHTML = `
-            <div class="Cart-Adder-Message">
-                <p class="hidden2 message">Product added successfully ✅. Continue shopping or check your cart to proceed to payment
-                </p>
-            </div>
-        `;
-        
-        saveToLocalStorage()
-    }
-
-    function changeImage(img) {
-        document.getElementById("mainImage").src = img
-    }
-
-    saveToLocalStorage()
-
-    showDetail()
-    // function safeCheck(item){
-    //     if (item){
-    //         showDetail()
-    //     }else{
-    //         console.log("err")
-    //     }
-    // }
-</script>
+        showDetail()
+        // function safeCheck(item){
+        //     if (item){
+        //         showDetail()
+        //     }else{
+        //         console.log("err")
+        //     }
+        // }
+    </script>
 
 </body>
 </html>

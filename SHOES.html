@@ -49,11 +49,10 @@
                                 </a>
                             </div>
                         
-                        <div class="Profile-image">
-                            <a href="">
-                                <img src="" class="profile-image" alt="profile-image">
-                            </a>
-                        </div>
+                        <div class="Profile-image"></div>
+                        <!-- <div class="sign-in">
+                            <button>Sign in</button>
+                        </div> -->
                     </div>
                 </div>
             </nav>
@@ -76,12 +75,59 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="Cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        <div class="navpop hidden"></div>
         <div class="header-Ads-container">
             <main class="header-Ads">
                 <div class="header-Ads-1 header-Ads-slide">
@@ -314,6 +360,8 @@
     </footer>
 
 
-    <script src="./SHOES.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="home.js"></script>
+
 </body>
 </html>

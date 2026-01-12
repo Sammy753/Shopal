@@ -1,0 +1,1520 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+section{
+    background-color: #dbdbdb;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.container1{
+    width: 60%;
+    height: 300%;
+    background-color: #101828;
+    transform: rotate(165deg) translate(0px, 100px);
+    position: fixed;
+    left: 0%;
+    z-index: 5;
+}
+.container1-content{
+    width: 40%;
+    position: fixed;
+    left: 5%;
+    top: 30%;
+    z-index: 6;
+    color: #dbdbdb;
+}
+.container1-content h1{
+    font-size: 56px;
+}
+.container1-content p{
+    font-size: 16px;
+    font-weight: 400;
+    width: 70%;
+    line-height: 2rem;
+}
+
+.container2{
+    position: relative;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 4;
+    backdrop-filter: blur(20px);
+}
+.InputFieldContainer{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right: 0%;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* z-index: 3; */
+}
+.InputField{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.InputField input{
+    width: 400px;
+    height: 40px;
+    border-style: none;
+    background-color: transparent;
+    border-bottom: 1px solid #101828;
+    font-weight: 600;
+}
+.InputField input:focus{
+    outline: none;
+    background-color: transparent;
+}
+.InputField input::placeholder{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+}
+.password button{
+    border-style: none;
+    background-color: transparent;
+    font-weight: 600;
+    font-size: 12px;
+}
+.PasswordInput{
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #101828;
+}
+.PasswordInput input{
+    width: 360px;
+    border: none;
+}
+.PasswordInput input[type="password"]{
+    font-size: 25px;
+    font-weight: 700;
+}
+.PasswordInput img{
+    width: 20px;
+    cursor: pointer;
+}
+
+.SignIn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: #101828;
+    color: #fff;
+    height: 48px;
+    border-style: none;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+}
+.SignIn:hover{
+    background-color: #1b2846;
+}
+
+.colorAnimation{
+    position: absolute;
+    top: 15%;
+    right: 10%;
+    width: 30%;
+    height: 70%;
+    z-index: 3;
+}
+.or-container{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 1rem;
+}
+.or-line{
+    background-color: #10182898;
+    width: 40%;
+    height: 0.5px;
+}
+
+.SocialMedia{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+.SocialMedia button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-style: none;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.SocialMedia button img{
+    width: 40px;
+    height: 40px;
+}
+
+.signup-option{
+    font-style: italic;
+    font-size: 14px;
+    font-size: 500;
+}
+
+.signup{
+    color: #ea580c;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.colorAnimation1{
+    position: absolute;
+    top: 0%;
+    right: 40%;
+    width: 10%;
+    height: 100%;
+    background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+    border-radius: 50%;
+    animation: rotate1 1.2s infinite;
+}
+
+@keyframes rotate1 {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.colorAnimation2{
+    position: absolute;
+    top: 0%;
+    right: 40%;
+    width: 20%;
+    height: 100%;
+    background: radial-gradient(circle, #ea580c, rgba(0, 0, 0, 0));
+    border-radius: 50%;
+    
+    animation: rotate2 1.8s infinite;
+
+}
+
+@keyframes rotate2 {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.colorAnimation3{
+    position: absolute;
+    top: 0%;
+    right: 40%;
+    width: 20%;
+    height: 100%;
+    background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+    border-radius: 50%;
+    
+    animation: rotate3 1s infinite;
+}
+
+@keyframes rotate3 {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+
+.colorAnimation4{
+    position: absolute;
+    top: 0%;
+    right: 40%;
+    width: 20%;
+    height: 100%;
+    background: radial-gradient(circle, #ea580c, #00000000);
+    border-radius: 50%;
+    
+    animation: rotate4 1.5s infinite;
+}
+
+@keyframes rotate4 {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(90deg);}
+    50%{transform: rotate(180deg);}
+    75%{transform: rotate(270deg);}
+    100%{transform: rotate(360deg);}
+}
+.colorAnimation5{
+    position: absolute;
+    top: 0%;
+    right: 40%;
+    width: 20%;
+    height: 100%;
+    background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+    border-radius: 50%;
+    
+    animation: rotate5 1.5s infinite;
+}
+
+@keyframes rotate5 {
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(-90deg);}
+    50%{transform: rotate(-180deg);}
+    75%{transform: rotate(-270deg);}
+    100%{transform: rotate(-360deg);}
+}
+
+.error{
+    border-bottom: 1px solid rgb(164, 0, 0);
+}
+
+
+
+@media screen and (max-width: 480px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #dbdbdb;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    section{
+        background-color: #dbdbdb;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .container1{
+        width: 110%;
+        height: 1000px;
+        background-color: #101828;
+        transform: rotate(97deg) translate(15vh, -50px);
+        position: fixed;
+        /* top: 60%; */
+        /* left: 0%; */
+        z-index: 5;
+    }
+    .container1-content{
+        width: 90%;
+        height: 40%;
+        position: fixed;
+        left: 10%;
+        top: 64dvh;
+        z-index: 6;
+        color: #dbdbdb;
+    }
+    .container1-content h1{
+        font-size: 26px;
+    }
+    .container1-content p{
+        font-size: 10px;
+        font-weight: 400;
+        width: 90%;
+        line-height: 2rem;
+    }
+
+    .container2{
+        position: relative;
+        right: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 4;
+        backdrop-filter: blur(20px);
+    }
+    .InputFieldContainer{
+        position: absolute;
+        /* width: 50%; */
+        top: 5%;
+        height: auto;
+        left: 25%;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* z-index: 3; */
+    }
+    .InputField{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .InputField input{
+        width: 250px;
+        height: 25px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #101828;
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .InputField input:focus{
+        outline: none;
+        background-color: transparent;
+    }
+    .InputField input::placeholder{
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 10px;
+    }
+    .password button{
+        border-style: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 9px;
+    }
+    .PasswordInput{
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #101828;
+    }
+    .PasswordInput input{
+        width: 230px;
+        border: none;
+    }
+    .PasswordInput input[type="password"]{
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .PasswordInput img{
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .SignIn{
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #101828;
+        color: #fff;
+        height: 30px;
+        border-style: none;
+        border-radius: 4px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    .SignIn:hover{
+        background-color: #1b2846;
+    }
+
+    .colorAnimation{
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        width: 30%;
+        height: 70%;
+        z-index: 3;
+    }
+    .or-container{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 12px;
+        padding-top: 1rem;
+    }
+    .or-line{
+        background-color: #10182898;
+        width: 40%;
+        height: 0.5px;
+    }
+
+    .SocialMedia{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .SocialMedia button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-style: none;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    .SocialMedia button img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .signup-option{
+        font-style: italic;
+        font-size: 10px;
+        font-size: 500;
+    }
+
+    .signup{
+        color: #ea580c;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .colorAnimation1{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 10%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        animation: rotate1 1.2s infinite;
+    }
+
+    @keyframes rotate1 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation2{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate2 1.8s infinite;
+
+    }
+
+    @keyframes rotate2 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation3{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate3 1s infinite;
+    }
+
+    @keyframes rotate3 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation4{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, #00000000);
+        border-radius: 50%;
+        
+        animation: rotate4 1.5s infinite;
+    }
+
+    @keyframes rotate4 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+    .colorAnimation5{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate5 1.5s infinite;
+    }
+
+    @keyframes rotate5 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(-90deg);}
+        50%{transform: rotate(-180deg);}
+        75%{transform: rotate(-270deg);}
+        100%{transform: rotate(-360deg);}
+    }
+
+    .error{
+        border-bottom: 1px solid rgb(164, 0, 0);
+    }
+}
+
+
+
+@media screen and (min-width: 481px) and (max-width: 599px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #dbdbdb;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    section{
+        background-color: #dbdbdb;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .container1{
+        width: 110%;
+        height: 1000px;
+        background-color: #101828;
+        transform: rotate(97deg) translate(30vh, -50px);
+        position: fixed;
+        /* top: 60%; */
+        /* left: 0%; */
+        z-index: 5;
+    }
+    .container1-content{
+        width: 90%;
+        height: 40%;
+        position: fixed;
+        left: 10%;
+        top: 64dvh;
+        z-index: 6;
+        color: #dbdbdb;
+    }
+    .container1-content h1{
+        font-size: 32px;
+    }
+    .container1-content p{
+        font-size: 14px;
+        font-weight: 400;
+        width: 90%;
+        line-height: 2rem;
+    }
+
+    .container2{
+        position: relative;
+        right: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 4;
+        backdrop-filter: blur(20px);
+    }
+    .InputFieldContainer{
+        position: absolute;
+        /* width: 50%; */
+        top: 5%;
+        height: auto;
+        left: 25%;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* z-index: 3; */
+    }
+    .InputField{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .InputField input{
+        width: 250px;
+        height: 25px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #101828;
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .InputField input:focus{
+        outline: none;
+        background-color: transparent;
+    }
+    .InputField input::placeholder{
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 10px;
+    }
+    .password button{
+        border-style: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 9px;
+    }
+    .PasswordInput{
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #101828;
+    }
+    .PasswordInput input{
+        width: 230px;
+        border: none;
+    }
+    .PasswordInput input[type="password"]{
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .PasswordInput img{
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .SignIn{
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #101828;
+        color: #fff;
+        height: 30px;
+        border-style: none;
+        border-radius: 4px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    .SignIn:hover{
+        background-color: #1b2846;
+    }
+
+    .colorAnimation{
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        width: 30%;
+        height: 70%;
+        z-index: 3;
+    }
+    .or-container{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 12px;
+        padding-top: 1rem;
+    }
+    .or-line{
+        background-color: #10182898;
+        width: 40%;
+        height: 0.5px;
+    }
+
+    .SocialMedia{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .SocialMedia button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-style: none;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    .SocialMedia button img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .signup-option{
+        font-style: italic;
+        font-size: 10px;
+        font-size: 500;
+    }
+
+    .signup{
+        color: #ea580c;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .colorAnimation1{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 10%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        animation: rotate1 1.2s infinite;
+    }
+
+    @keyframes rotate1 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation2{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate2 1.8s infinite;
+
+    }
+
+    @keyframes rotate2 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation3{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate3 1s infinite;
+    }
+
+    @keyframes rotate3 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation4{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, #00000000);
+        border-radius: 50%;
+        
+        animation: rotate4 1.5s infinite;
+    }
+
+    @keyframes rotate4 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+    .colorAnimation5{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate5 1.5s infinite;
+    }
+
+    @keyframes rotate5 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(-90deg);}
+        50%{transform: rotate(-180deg);}
+        75%{transform: rotate(-270deg);}
+        100%{transform: rotate(-360deg);}
+    }
+
+    .error{
+        border-bottom: 1px solid rgb(164, 0, 0);
+    }
+}
+
+
+
+
+@media screen and (min-width: 600px) and (max-width: 768px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        background-color: #dbdbdb;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    section{
+        background-color: #dbdbdb;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+    .container1{
+        width: 110%;
+        height: 1000px;
+        background-color: #101828;
+        transform: rotate(97deg) translate(40vh, -50px);
+        position: fixed;
+        /* top: 60%; */
+        /* left: 0%; */
+        z-index: 5;
+    }
+    .container1-content{
+        width: 90%;
+        height: 40%;
+        position: fixed;
+        left: 10%;
+        top: 64dvh;
+        z-index: 6;
+        color: #dbdbdb;
+    }
+    .container1-content h1{
+        font-size: 36px;
+    }
+    .container1-content p{
+        font-size: 14px;
+        font-weight: 400;
+        width: 90%;
+        line-height: 2rem;
+    }
+
+    .container2{
+        position: relative;
+        right: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 4;
+        backdrop-filter: blur(20px);
+    }
+    .InputFieldContainer{
+        position: absolute;
+        /* width: 50%; */
+        top: 5%;
+        height: auto;
+        left: 25%;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* z-index: 3; */
+    }
+    .InputField{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .InputField input{
+        width: 250px;
+        height: 25px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #101828;
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .InputField input:focus{
+        outline: none;
+        background-color: transparent;
+    }
+    .InputField input::placeholder{
+        font-size: 10px;
+        font-weight: 600;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 10px;
+    }
+    .password button{
+        border-style: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 9px;
+    }
+    .PasswordInput{
+        width: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #101828;
+    }
+    .PasswordInput input{
+        width: 230px;
+        border: none;
+    }
+    .PasswordInput input[type="password"]{
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .PasswordInput img{
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .SignIn{
+        width: 100%;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #101828;
+        color: #fff;
+        height: 30px;
+        border-style: none;
+        border-radius: 4px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    .SignIn:hover{
+        background-color: #1b2846;
+    }
+
+    .colorAnimation{
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        width: 30%;
+        height: 70%;
+        z-index: 3;
+    }
+    .or-container{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 12px;
+        padding-top: 1rem;
+    }
+    .or-line{
+        background-color: #10182898;
+        width: 40%;
+        height: 0.5px;
+    }
+
+    .SocialMedia{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .SocialMedia button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-style: none;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    .SocialMedia button img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .signup-option{
+        font-style: italic;
+        font-size: 10px;
+        font-size: 500;
+    }
+
+    .signup{
+        color: #ea580c;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .colorAnimation1{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 10%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        animation: rotate1 1.2s infinite;
+    }
+
+    @keyframes rotate1 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation2{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate2 1.8s infinite;
+
+    }
+
+    @keyframes rotate2 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation3{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate3 1s infinite;
+    }
+
+    @keyframes rotate3 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation4{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, #00000000);
+        border-radius: 50%;
+        
+        animation: rotate4 1.5s infinite;
+    }
+
+    @keyframes rotate4 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+    .colorAnimation5{
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate5 1.5s infinite;
+    }
+
+    @keyframes rotate5 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(-90deg);}
+        50%{transform: rotate(-180deg);}
+        75%{transform: rotate(-270deg);}
+        100%{transform: rotate(-360deg);}
+    }
+
+    .error{
+        border-bottom: 1px solid rgb(164, 0, 0);
+    }
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Montserrat', sans-serif;
+    }
+    body{
+        overflow: hidden;
+        width: 100dvb;
+        height: 100dvh;
+    }
+    section{
+        background-color: #dbdbdb;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    .container1{
+        width: 60%;
+        height: 300%;
+        background-color: #101828;
+        transform: rotate(165deg) translate(0px, 100px);
+        position: fixed;
+        left: 0%;
+        z-index: 5;
+    }
+    .container1-content{
+        width: 40%;
+        position: fixed;
+        left: 5%;
+        top: 28%;
+        z-index: 6;
+        color: #dbdbdb;
+    }
+    .container1-content h1{
+        font-size: 40px;
+        width: 70%;
+    }
+    .container1-content p{
+        font-size: 12px;
+        font-weight: 400;
+        width: 70%;
+        line-height: 2rem;
+    }
+
+    .container2{
+        position: relative;
+        right: 0%;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.7);
+        z-index: 4;
+        backdrop-filter: blur(20px);
+    }
+    .InputFieldContainer{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        right: 0%;
+        font-size: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* z-index: 3; */
+    }
+    .InputField{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .InputField input{
+        width: 300px;
+        height: 40px;
+        border-style: none;
+        background-color: transparent;
+        border-bottom: 1px solid #101828;
+        font-weight: 600;
+    }
+    .InputField input:focus{
+        outline: none;
+        background-color: transparent;
+    }
+    .InputField input::placeholder{
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .password{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        gap: 10px;
+    }
+    .password button{
+        border-style: none;
+        background-color: transparent;
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .PasswordInput{
+        width: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #101828;
+    }
+    .PasswordInput input{
+        width: 280px;
+        border: none;
+    }
+    .PasswordInput input[type="password"]{
+        font-size: 25px;
+        font-weight: 700;
+    }
+    .PasswordInput img{
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .SignIn{
+        width: 100%;
+        font-size: 14px;
+        font-weight: 600;
+        background-color: #101828;
+        color: #fff;
+        height: 38px;
+        border-style: none;
+        border-radius: 10px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+    }
+    .SignIn:hover{
+        background-color: #1b2846;
+    }
+
+    .colorAnimation{
+        position: absolute;
+        top: 15%;
+        right: 10%;
+        width: 30%;
+        height: 70%;
+        z-index: 3;
+    }
+    .or-container{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 12px;
+        padding-top: 1rem;
+    }
+    .or-line{
+        background-color: #10182898;
+        width: 40%;
+        height: 0.5px;
+    }
+
+    .SocialMedia{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+    }
+    .SocialMedia button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-style: none;
+        border-radius: 50%;
+        background-color: transparent;
+        border: 1px solid black;
+        cursor: pointer;
+    }
+    .SocialMedia button img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .signup-option{
+        font-style: italic;
+        font-size: 14px;
+        font-size: 500;
+    }
+
+    .signup{
+        color: #ea580c;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .colorAnimation1{
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        width: 10%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        animation: rotate1 1.2s infinite;
+    }
+
+    @keyframes rotate1 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation2{
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate2 1.8s infinite;
+
+    }
+
+    @keyframes rotate2 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation3{
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate3 1s infinite;
+    }
+
+    @keyframes rotate3 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+
+    .colorAnimation4{
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #ea580c, #00000000);
+        border-radius: 50%;
+        
+        animation: rotate4 1.5s infinite;
+    }
+
+    @keyframes rotate4 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(90deg);}
+        50%{transform: rotate(180deg);}
+        75%{transform: rotate(270deg);}
+        100%{transform: rotate(360deg);}
+    }
+    .colorAnimation5{
+        position: absolute;
+        top: 0%;
+        right: 40%;
+        width: 20%;
+        height: 100%;
+        background: radial-gradient(circle, #101828, rgba(0, 0, 0, 0));
+        border-radius: 50%;
+        
+        animation: rotate5 1.5s infinite;
+    }
+
+    @keyframes rotate5 {
+        0%{transform: rotate(0deg);}
+        25%{transform: rotate(-90deg);}
+        50%{transform: rotate(-180deg);}
+        75%{transform: rotate(-270deg);}
+        100%{transform: rotate(-360deg);}
+    }
+
+    .error{
+        border-bottom: 1px solid rgb(164, 0, 0);
+    }
+
+}

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
+    <link rel="stylesheet" href="./signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Sign in</title>
+</head>
+<body>
+    <section>
+        <div class="container1">
+            
+        </div>
+        <div class="container1-content">
+            <h1>Welcome!</h1>
+            <p>Create your account today and unlock a smarter shopping experience. Enjoy exclusive discounts, faster checkout, personalized product suggestions, and easy order tracking. Join thousands of happy shoppers and start discovering the best deals tailored specially for your needs.</p>
+        </div>
+        
+        <div class="container2">
+            <div class="InputFieldContainer">
+                <div class="InputField">
+                    <label for="">
+                        <h3>Full name</h3>
+                        <input type="text" class="name" placeholder="Enter your user name" required>
+                    </label>
+                    <label for="">
+                        <h3>Email</h3>
+                        <input type="email" class="email" placeholder="Enter your email" required>
+                        
+                        <p class="passwordMessageEmail"></p>
+                    </label>
+                    <div class="password">
+                        <label for="">
+                            <h3>Create password</h3>
+                            <div class="PasswordInput">
+                                <input type="password" class="Password" placeholder="Enter your email" required>
+                                <img src="./media/fluent--eye-12-filled.png" class="eye" alt="">
+                            </div>
+                            <p class="passwordMessage"></p>
+                        </label>
+                    </div>
+                    <div class="password">
+                        <label for="">
+                            <h3>Confirm password</h3>
+                            <div class="PasswordInput">
+                                <input type="password" class="Password2" placeholder="Enter your email" required>
+                                <img src="./media/fluent--eye-12-filled.png" class="eye2" alt="">
+                            </div>
+                            <p class="passwordMessage2"></p>
+                        </label>
+                    </div>
+                    <button class="SignIn">Sign up</button>
+                    <div class="or-container">
+                        <div class="or-line"></div>
+                        <div><p>Or</p></div>
+                        <div class="or-line"></div>
+                    </div>
+                    <div class="SocialMedia">
+                        <button class="google"><img src="./media/icons8-google-64.png" alt=""></button>
+                        <button class="facebook"><img src="./media/icons8-facebook-64.png" alt=""></button>
+                        <button class="twitter"><img src="./media/icons8-twitter-circled-64.png" alt=""></button>
+                    </div>
+                    <div class="signup-option">
+                        <p>Already have an account? <span class="signup">Sign in</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="colorAnimation">
+            <div class="colorAnimation1"></div>
+            <div class="colorAnimation2"></div>
+            <div class="colorAnimation3"></div>
+            <div class="colorAnimation4"></div>
+            <div class="colorAnimation5"></div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
+
+        const name = document.querySelector(".name")
+        const email = document.querySelector(".email")
+        const Password = document.querySelector(".Password")
+        const Password2 = document.querySelector(".Password2")
+        const eye = document.querySelector(".eye")
+        const eye2 = document.querySelector(".eye2")
+        const signup = document.querySelector(".signup")
+        const PasswordInput = document.querySelectorAll(".PasswordInput")
+        const passwordMessage = document.querySelector(".passwordMessage")
+        const passwordMessage2 = document.querySelector(".passwordMessage2")
+        const passwordMessageEmail = document.querySelector(".passwordMessageEmail")
+        const SignUp = document.querySelector(".SignIn")
+        let check = true
+        let check2 = true
+        let emailCheck = false
+        let passwordCheck = false
+        let nameCheck = false
+
+
+
+        eye.addEventListener("click", () => {
+            if (Password.value !== ""){
+                if(check === true){
+                
+                    Password.type="text"
+                    check = false
+                    eye.src = "./media/fluent--eye-off-16-filled.png";
+
+                }else{
+                    
+                    Password.type="password"
+                    check = true
+                    eye.src = "./media/fluent--eye-12-filled.png";
+
+                }
+            }else{
+                eye.src = "./media/fluent--eye-12-filled.png";
+            }
+            
+        })
+
+        eye2.addEventListener("click", () => {
+            if (Password2.value !== ""){
+                if(check2 === true){
+                
+                    Password2.type="text"
+                    check2 = false
+                    eye2.src = "./media/fluent--eye-off-16-filled.png";
+
+                }else{
+                    
+                    Password2.type="password"
+                    check2 = true
+                    eye2.src = "./media/fluent--eye-12-filled.png";
+
+                }
+            }else{
+                eye2.src = "./media/fluent--eye-12-filled.png";
+            }
+            
+        })
+
+        Password.addEventListener("input", (e) => {
+            let value = Password.value;
+
+            const upperCase = /[A-Z]/.test(value);
+            const lowerCase = /[a-z]/.test(value);
+            const number = /[0-9]/.test(value);
+            
+            
+            
+            const specialChar = /[@#%^&]/.test(value);
+
+
+            const forbidden = /[$*_\-+ ]/.test(value);
+
+
+            if (forbidden) {
+                passwordMessage.classList.add("errorMessage");
+                passwordMessage.classList.remove("success");
+                passwordMessage.innerHTML = `Password must not include $, *, _, -, + or space`;
+                return; // 👈 STOP here
+            }
+
+            // 2️⃣ Now check for strong password
+            if (upperCase && lowerCase && number && specialChar && value.length >= 8) {
+                passwordMessage.classList.add("success");
+                passwordMessage.classList.remove("errorMessage");
+                passwordMessage.innerHTML = `Strong password`;
+                
+            }
+            else {
+                passwordMessage.classList.remove("success");
+                passwordMessage.classList.add("errorMessage");
+                passwordMessage.innerHTML = `Must include uppercase, lowercase, number, above 8 character and have at least one of @ # % ^ &`;
+            }
+
+            if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+            }
+        });
+
+        name.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/[^a-zA-Z\""]/g, "").toUpperCase()
+            if(name !== "")nameCheck = true;
+        })
+        email.addEventListener("input", () => {
+            let value = email.value
+            const check = /[@]/.test(value)
+            if(!check){
+                passwordMessageEmail.innerHTML=`email must include @`
+            }else{
+                passwordMessageEmail.innerHTML="";
+                emailCheck = true
+            }
+        })
+        
+
+        Password2.addEventListener("input", () => {
+            if(Password.value !== Password2.value){
+                PasswordInput.forEach(Input => Input.classList.add("error"))
+                passwordMessage2.classList.remove("success")
+                passwordMessage2.classList.add("errorMessage")
+                passwordMessage2.innerHTML=`Password doesn't match`
+            }else{
+                PasswordInput.forEach(Input => Input.classList.remove("error"))
+                passwordMessage2.classList.add("success")
+                passwordMessage2.classList.remove("errorMessage")
+                passwordMessage2.innerHTML = "Password match"
+                passwordCheck = true
+            }
+        })
+
+        // SignUp.addEventListener("click", () => {
+        //     if(passwordCheck && emailCheck && nameCheck){
+        //         async function SupaDataSet() {
+        //             const Name = name.value
+        //             const Email = email.value
+        //             const PasswordMain = Password2.value
+
+        //             const {data, error} = await supabaseClient.auth.signUp({
+                        
+        //                 email: Email,
+        //                 password: PasswordMain,
+        //                 Option: {
+        //                     data:{
+        //                         fullName: Name
+        //                     }
+        //                 }
+        //             })
+
+        //             if(error){
+        //                 alert(error.message)
+        //             }else{
+        //                 window.location.href=`index.html`
+        //             }
+        //         }
+
+                
+        //         SupaDataSet();
+        //     }else{
+        //         alert("Please fill all necessary field before signing up")
+        //     }
+
+        //     SupaDataSet();
+        // })
+        SignUp.addEventListener("click", () => {
+            if(passwordCheck && emailCheck && nameCheck){
+                async function SupaDataSet() {
+                    const { data, error } = await supabaseClient.auth.signUp({
+                        email: email.value,
+                        password: Password2.value,
+                        options: {
+                            data: {
+                                userName: name.value
+                            }
+                        }
+                    })
+
+                    if(error){
+                        alert(error.message)
+                    }else{
+                        window.location.href = "index.html"
+                    }
+                }
+
+                SupaDataSet();
+            }else{
+                alert("Please fill all necessary field before signing up")
+            }
+        })
+
+
+        signup.addEventListener("click", () => {
+            window.location.href=`signin.html`
+        })
+
+    </script>
+</body>
+</html>

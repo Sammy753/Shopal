@@ -76,12 +76,60 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        
+        <div class="navpop hidden"></div>
     </header>
     <section>
         <main>
@@ -89,33 +137,33 @@
                 <img src="./mediaspeP/Group 48 (1).png" alt="">
             </div>
             <div class="heading"></div>
-            <div>
-                <form action="">
+            <div class="form">
+                <form action="" class="shippingForm">
                     <div class="name-phoneNo">
 
-                        <label for="name">
+                        <label for="name" class="Name" >
                             <h2>Name</h2>
-                            <input id="name" class="userInput" type="text" placeholder="Enter your name" required/>
+                            <input id="name" class="userInput addressAndName" type="text" placeholder="Enter your name" required/>
                             <p>Surname first</p>
                         </label>
 
-                        <label for="number">
+                        <label for="number" class="Number">
                             <h2>Phone Number</h2>
-                            <input id="number" class="userInput" type="tel" placeholder="Phone number" required/>
+                            <input id="number" class="userInput number" type="tel" placeholder="Phone number" required/>
                         </label>
 
                     </div>
 
                     <div class="Address">
-                        <div>
+                        <div class="states">
                             <h2>Address</h2>
 
-                            <label for="State">
-                                <input id="State" class="userInput" type="text" placeholder="State" required/>
+                            <label for="State" class="states">
+                                <input id="State" class="userInput addressAndName" type="text" placeholder="State" required/>
                             </label>
                         </div>
-                        <label for="City">
-                            <input id="City" class="userInput" type="text" placeholder="City" required/>
+                        <label for="City" class="city" >
+                            <input id="City" class="userInput addressAndName" type="text" placeholder="City" required/>
                         </label>
 
                     </div>
@@ -206,6 +254,8 @@
         </div>
     </footer>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="./shipping.js"></script>
 </body>
 </html>

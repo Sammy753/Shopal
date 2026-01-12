@@ -76,12 +76,60 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="Cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        
+        <div class="navpop hidden"></div>
     </header>
     <section>
 
@@ -192,17 +240,29 @@
     <!-- Load your JS first -->
     <!-- <script src="./product.js"></script> -->
 
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         const params = new URLSearchParams(window.location.search);
         const id = params.get("id");
         const title = params.get("title")
         const CartAdderMessage = document.querySelector(".Cart-adder-message")
-        const CartAdder = document.querySelector("#Cart-adder")
+        const CartAdder = document.querySelectorAll(".Cart-adder")
         const storys = document.querySelector(".storys")
         const productDescription = document.querySelector(".product-description")
         const CustomerReviewsCard = document.querySelector(".Customer-Reviews-card")
         const CustomerReviewsRating = document.querySelector(".Customer-Reviews-rating")
+        const navpop = document.querySelector(".navpop")
+        const hamburger = document.querySelector(".Hamburger")
+        let setcheck = false
+        const hamburgerLap = document.querySelector(".Hamburger-lap")
+        const ProfileImage = document.querySelector(".Profile-image")
+
+        
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
+
 
         let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
 
@@ -211,8 +271,190 @@
         }
 
         if (Cart.length > 0) {
-            CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+            CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
         }
+
+                
+        async function Check() {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                console.log(data)
+                // alert("log in alaye")
+                ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                    
+                let SignIn = ProfileImage.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+            }else{
+
+                let userName = data.user.user_metadata.userName
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage.innerHTML= `<div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage.querySelector(".logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            }
+            
+        }
+
+        async function Check2(ProfileImage2) {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                // alert("log in alaye")
+                // ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                
+                console.log(data)
+                ProfileImage2.innerHTML= `<button class="SignIn" >Sign in</button>`
+                
+                let SignIn = ProfileImage2.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+
+            }else{
+
+                let userName = data.user.user_metadata.userName || "User"
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage2.innerHTML= `<hr /><div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="Logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>Logout</p>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage2.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+
+                let logout = ProfileImage2.querySelector(".Logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            
+            }
+        }
+
+        Check();
+
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        if (Cart.length > 0) {
+        CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
+        }
+
+                
+        hamburgerLap.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>            
+                    </div>
+                `
+
+            }else{
+                navpop.classList.add("hidden")
+            }
+
+            setcheck = true
+        })
+
+
+        hamburger.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="location-And-Order">
+                            <div class="location-nav">
+                                <a href="">
+                                    <img src="./media/reliance_hmo 1.png" alt="">
+                                    <p>Uyo</p>
+                                </a>
+                            </div>
+                            <div class="order-nav">
+                                <a href="./ordertrack.html">
+                                    <img src="./media/Vector.png" alt="">
+                                    <p>Order</p>
+                                </a>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>
+                    
+                        <div class="Profile-image2"></div>
+                    </div>
+                `
+
+                const ProfileImage2 = navpop.querySelector(".Profile-image2")
+
+                Check2(ProfileImage2)
+
+            }else{
+                navpop.classList.add("hidden")
+            }
+
+            setcheck = true
+        })
+
+        navpop.addEventListener("click", () => {
+            navpop.classList.add("hidden")
+            setcheck = false
+        })
         
         async function showDetail() {
             const res = await fetch(`./allProduct.json`)
@@ -318,14 +560,21 @@
 
             CustomerReviewsCard.innerHTML = `
                 <div class="review-card">
-                    <img src="./mediaspeP/Rectangle 81.png" alt="">
+                    <div class="mobile-profile">
+                        <img src="./mediaspeP/Rectangle 81.png" alt="">
+                        <div class="name-review-div">
+                            <h3>Courtney Henry</h3>
+                            <p class="date">12/06/2020</p>
+                        </div>
+                    </div>
+                    <img src="./mediaspeP/Rectangle 81.png" class="desktop-profile" alt="">
                     <div class="review-content">
                         <div class="name-review">
-                            <div class="name-review-div">
+                            <div class="name-review-div desktop-profile">
                                 <h3>Courtney Henry</h3>
                                 <p class="date">12/06/2020</p>
                             </div>
-                            <div class="name-review-div">
+                            <div class="Name-review-div">
                                 <div class="Review"><img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
@@ -342,7 +591,7 @@
                         </div>
                         <div class="image-reply">
                             <div class="small-image-box-review">${showImageReview}</div>
-                            <div class="reply">
+                            <div class="reply t2">
                                 <div class="like">
                                    <img src="./Media2/fa_thumbs-o-up.png" alt="">
                                    <p>10</p>
@@ -357,14 +606,21 @@
                     </div>
                 </div>
                 <div class="review-card">
-                    <img src="./mediaspeP/Rectangle 82.png" alt="">
+                    <div class="mobile-profile">
+                        <img src="./mediaspeP/Rectangle 81.png" alt="">
+                        <div class="name-review-div">
+                            <h3>Courtney Henry</h3>
+                            <p class="date">12/06/2020</p>
+                        </div>
+                    </div>
+                    <img src="./mediaspeP/Rectangle 82.png" class="desktop-profile" alt="">
                     <div class="review-content">
                         <div class="name-review">
-                            <div class="name-review-div">
+                            <div class="name-review-div desktop-profile">
                                 <h3>Dianne Russell</h3>
                                 <p class="date">15/08/2017</p>
                             </div>
-                            <div class="name-review-div">
+                            <div class="Name-review-div">
                                 <div class="Review"><img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
@@ -381,7 +637,7 @@
                         </div>
                         <div class="image-reply">
                             <div class="small-image-box-review">${showImageReview}</div>
-                            <div class="reply">
+                            <div class="reply t2">
                                 <div class="like">
                                    <img src="./Media2/fa_thumbs-o-up.png" alt="">
                                    <p>10</p>
@@ -396,14 +652,21 @@
                     </div>
                 </div>
                 <div class="review-card">
-                    <img src="./mediaspeP/Rectangle 83.png" alt="">
+                    <div class="mobile-profile">
+                        <img src="./mediaspeP/Rectangle 81.png" alt="">
+                        <div class="name-review-div">
+                            <h3>Courtney Henry</h3>
+                            <p class="date">12/06/2020</p>
+                        </div>
+                    </div>
+                    <img src="./mediaspeP/Rectangle class="desktop-profile" 83.png" alt="">
                     <div class="review-content">
                         <div class="name-review">
-                            <div class="name-review-div">
+                            <div class="name-review-div desktop-profile">
                                 <h3>Esther Howard</h3>
                                 <p class="date">16/08/2013</p>
                             </div>
-                            <div class="name-review-div">
+                            <div class="Name-review-div">
                                 <div class="Review"><img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
                                     <img src="./mediaspeP/Star 1.png" class="Reviews" alt="">
@@ -420,7 +683,7 @@
                         </div>
                         <div class="image-reply">
                             <div class="small-image-box-review">${showImageReview}</div>
-                            <div class="reply">
+                            <div class="reply t2">
                                 <div class="like">
                                    <img src="./Media2/fa_thumbs-o-up.png" alt="">
                                    <p>10</p>
@@ -507,17 +770,18 @@
                 Cart.push({ id, title, price, category, thumbnail, images, rating, description, story, quantity: 1})
 
             }
-            CartAdder.innerHTML = `<p>${adder(Cart)}</p>`
+            CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
 
             saveToLocalStorage()
             // CartAdderMESSAGE()
             
-            CartAdderMessage.classList.remove("hidden")
+            // CartAdder.forEach(add => add.classList.remove("hidden"))
+                CartAdderMessage.classList.remove("hidden")
         }
 
         function adder(Cart){
             if (Cart.length > 0){
-                CartAdder.classList.remove("hidden")
+                CartAdder.forEach(add => add.classList.remove("hidden"))
                 let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
                 return cartShower;
             }

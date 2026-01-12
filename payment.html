@@ -76,12 +76,60 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        
+        <div class="navpop hidden"></div>
     </header>
     <section>
         <main>
@@ -90,40 +138,40 @@
                 <img src="./mediaspeP/Group 47 (2).png" alt="">
             </div>
             <div  class="card-main">
-                <div>
+                <div class="form f2">
                     
                     <div class="heading"></div>
                     <form action="">
                         <div class="Card">
 
-                            <label for="">
+                            <label for="" class="cardWidth" >
                                 <h2>Cardholder Name</h2>
-                                <input class="userInput" type="text" placeholder="Enter your name" required/>
+                                <input class="userInput CardholderName" type="text" placeholder="Enter your name" required/>
                                 
                             </label>
 
-                            <label for="">
+                            <label for="" class="cardWidth" >
 
                                 <h2>Card Number</h2>
-                                <input class="userInput" type="number" placeholder="Enter your Card Number" required/>
+                                <input class="userInput CardNumber" type="text" placeholder="Enter your Card Number" maxlength="19" required/>
                                 
                             </label>
 
                         </div>
 
                         <div class="card-No">
-                            <div>
+                            <div class="card-NoWidth" >
                                 <h2>Expires</h2>
 
                                 <label for="">
-                                    <input class="userInput" type="date" placeholder="Date Expires" required/>
+                                    <input class="userInput expireDate" type="text" placeholder="Date Expires" maxlength="5" required/>
                                 </label>
                             </div>
 
-                            <div>
+                            <div class="card-NoWidth" >
                                 <h2>CVV</h2>
                                 <label for="">
-                                    <input class="userInput" type="number" placeholder="CVV" required/>
+                                    <input class="userInput CVV" type="text" placeholder="CVV" required/>
                                 </label>
                             </div>
 
@@ -140,7 +188,7 @@
 
                     </form>
                 </div>
-                <div>
+                <div class="visa">
                     <img src="./mediaspeP/Rectangle 130.png" alt="">
                 </div>
             </div>
@@ -216,24 +264,262 @@
         </div>
     </footer>
 
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
         const CartAdderMessage = document.querySelector(".Cart-adder-message")
         const CartAdder = document.querySelector("#Cart-adder")
+        const cartAdder = document.querySelector("#cart-adder")
         const heading = document.querySelector(".heading")
         const Buynow = document.querySelector(".Buy-now")
         const inputs = document.querySelectorAll(".userInput")
         const checkbox = document.querySelector("#checkboxd")
+        const navpop = document.querySelector(".navpop")
+        const hamburger = document.querySelector(".Hamburger")
+        let setcheck = false
+        const expireDate = document.querySelector(".expireDate")
+        const CardNumber = document.querySelector(".CardNumber")
+        const CVV = document.querySelector(".CVV")
+        const CardholderName = document.querySelector(".CardholderName")
+
+        const hamburgerLap = document.querySelector(".Hamburger-lap")
+        const ProfileImage = document.querySelector(".Profile-image")
+
+        
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
 
 
         let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
+
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        if (Cart.length > 0) {
+            CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+            cartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+        }
+
+                
+        async function Check() {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                console.log(data)
+                // alert("log in alaye")
+                ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                    
+                let SignIn = ProfileImage.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+            }else{
+
+                let userName = data.user.user_metadata.userName
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage.innerHTML= `<div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage.querySelector(".logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            }
+            
+        }
+
+        async function Check2(ProfileImage2) {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                // alert("log in alaye")
+                // ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                
+                console.log(data)
+                ProfileImage2.innerHTML= `<button class="SignIn" >Sign in</button>`
+                
+                let SignIn = ProfileImage2.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+
+            }else{
+
+                let userName = data.user.user_metadata.userName || "User"
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage2.innerHTML= `<hr /><div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="Logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>Logout</p>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage2.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage2.querySelector(".Logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            
+            }
+        }
+
+        Check();
+
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        if (Cart.length > 0) {
+            CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+            cartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+        }
+
+                
+        hamburgerLap.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>            
+                    </div>
+                `
+
+            }else{
+                navpop.classList.add("hidden")
+            }
+
+            setcheck = true
+        })
+
+
         let itemBought = JSON.parse(localStorage.getItem("itemBought")) || [];
 
         function saveToLocalStorage(){
             localStorage.setItem("Cart", JSON.stringify(Cart))
             localStorage.setItem("itemBought", JSON.stringify(itemBought))
         }
+        let month;
+        let day;
 
-        
+        expireDate.addEventListener("input", (e) => {
+            
+            if (e.inputType === "deleteContentBackward") return;
+
+            let value = e.target.value.replace(/\D/g, "");
+            if (value.length > 4) value = value.slice(0, 4);
+            if (value.length >= 2){
+                month = value.slice(0, 2)
+                if (month > 12)month = "12";
+                if (month < 1)month = "01";
+            }
+            if (value.length >= 3){
+                day = value.slice(2, 4)
+                if (day < 1)day = "01";
+                if(month === "02" && day > 29){day = "29"}
+                else if (month === "09" || month === "04" || month === "06" || month === "11" ){
+                    if(day > 30)day = "30";
+                }
+                else{
+                    if(day > 31)day = "31";
+                }
+                
+            }
+
+            if (value.length >= 3){
+                value = month + "/" + day;
+            }
+
+            e.target.value = value;
+        })
+        hamburger.addEventListener("click", () => {
+        if(setcheck === false){
+            navpop.classList.remove("hidden")
+            navpop.innerHTML = `
+                <div class="pop">
+                    <div class="location-And-Order">
+                        <div class="location-nav">
+                            <a href="">
+                                <img src="./media/reliance_hmo 1.png" alt="">
+                                <p>Uyo</p>
+                            </a>
+                        </div>
+                        <div class="order-nav">
+                            <a href="./ordertrack.html">
+                                <img src="./media/Vector.png" alt="">
+                                <p>Order</p>
+                            </a>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="ul-navbar">
+                        <ul>
+                            <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                            <li><a href="./SHOES.html">SHOES</a></li>
+                            <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                            <li><a href="./GADGETS.html">GADGETS</a></li>
+                            <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                            <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                            <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                        </ul>
+                    </div>
+                    <div class="Profile-image2"></div>
+                
+                </div>
+            `
+            const ProfileImage2 = navpop.querySelector(".Profile-image2")
+            Check2(ProfileImage2);
+            
+        }else{
+            navpop.classList.add("hidden")
+        }
+
+        setcheck = true
+    })
+
+    navpop.addEventListener("click", () => {
+        navpop.classList.add("hidden")
+        setcheck = false
+    })
 
         Buynow.addEventListener("click", () => {
             let AllField = true 
@@ -274,6 +560,7 @@
         
         if (Cart.length > 0 ) {
             CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
+            cartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
             heading.innerHTML = `<h1>Payment</h1>`
         }
 
@@ -281,6 +568,8 @@
         function adder(Cart){
             if (Cart.length > 0){
                 CartAdder.classList.remove("hidden")
+                
+                cartAdder.classList.remove("hidden")
                 let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
                 return cartShower;
             }
@@ -288,6 +577,76 @@
             // saveToLocalStorage()
 
         }
+
+        // let scale1; let scale2; let scale3; let scale4;
+
+        // CardNumber.addEventListener("input", (e) => {
+        //     let values = e.target.value.replace(/\D/g, "");
+        //     // let WithSpace;
+        //     // values.split("").forEach((val, index) => {
+        //     //     if(index == 0)WithSpace += val
+        //     //     if(index == 1)WithSpace += val
+        //     //     if(index == 2)WithSpace += val
+        //     //     if(index == 3)WithSpace += val + " ";
+        //     //     if(index == 4)WithSpace += val
+        //     //     if(index == 5)WithSpace += val
+        //     //     if(index == 6)WithSpace += val
+        //     //     if(index == 7)WithSpace += val + " ";
+        //     //     if(index == 8)WithSpace += val
+        //     //     if(index == 9)WithSpace += val
+        //     //     if(index == 10)WithSpace += val
+        //     //     if(index == 11)WithSpace += val + " "
+        //     //     if(index == 12)WithSpace += val
+        //     //     if(index == 13)WithSpace += val
+        //     //     if(index == 14)WithSpace += val
+        //     //     if(index == 15)WithSpace += val
+        //     // })
+
+        //     if(values.length > 16){
+        //         values = values.slice(0, 16);
+        //     }
+
+        //     console.log(values)
+            
+
+        //     e.target.value = values;
+        // })
+
+        CardholderName.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/[^a-zA-Z\" "]/g, "").toUpperCase()
+            
+        })
+
+        CardNumber.addEventListener("input", (e) => {
+            let values = e.target.value.replace(/\D/g, "");
+
+            // Limit to 16 digits
+            if (values.length > 16) values = values.slice(0, 16);
+
+            // Slice into 4-digit groups
+            let scale1 = values.slice(0, 4);
+            let scale2 = values.slice(4, 8);
+            let scale3 = values.slice(8, 12);
+            let scale4 = values.slice(12, 16);
+
+            // Join only existing slices with space
+            let formatted = scale1;
+            if (scale2) formatted += " " + scale2;
+            if (scale3) formatted += " " + scale3;
+            if (scale4) formatted += " " + scale4;
+
+            e.target.value = formatted;
+        });
+
+
+        CVV.addEventListener("input", (e) => {
+            let value = e.target.value.replace(/\D/g, "")
+            if(value.length > 3){
+                value = value.slice(0, 3);
+            }
+
+            e.target.value = value;
+        })
 
         // function safeCheck(item){
         //     if (item){

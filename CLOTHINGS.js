@@ -9,6 +9,9 @@ const listViewTwo = document.querySelector(".View-listTwo")
 const gridView = document.querySelector(".View-grid")
 const gridViewTwo = document.querySelector(".View-gridTwo")
 const CartAdderMessage = document.querySelector(".Cart-adder-message")
+const navpop = document.querySelector(".navpop")
+const hamburger = document.querySelector(".Hamburger")
+const setcheck = false
 
 let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
 
@@ -19,6 +22,52 @@ function saveToLocalStorage(){
 if (Cart.length > 0) {
   CartAdder.innerHTML = `<p>${adder(Cart)}</p>`;
 }
+
+hamburger.addEventListener("click", () => {
+    if(setcheck === false){
+        navpop.classList.remove("hidden")
+        navpop.innerHTML = `
+            <div class="pop">
+                <div class="location-And-Order">
+                    <div class="location-nav">
+                        <a href="">
+                            <img src="./media/reliance_hmo 1.png" alt="">
+                            <p>Uyo</p>
+                        </a>
+                    </div>
+                    <div class="order-nav">
+                        <a href="./ordertrack.html">
+                            <img src="./media/Vector.png" alt="">
+                            <p>Order</p>
+                        </a>
+                    </div>
+                </div>
+                <hr/>
+                <div class="ul-navbar">
+                    <ul>
+                        <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                        <li><a href="./SHOES.html">SHOES</a></li>
+                        <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                        <li><a href="./GADGETS.html">GADGETS</a></li>
+                        <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                        <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                        <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                    </ul>
+                </div>
+            
+            </div>
+        `
+    }else{
+        navpop.classList.add("hidden")
+    }
+
+    setcheck = true
+})
+
+navpop.addEventListener("click", () => {
+    navpop.classList.add("hidden")
+    setcheck = false
+})
 
 let searchProduct = []
 let selectData = []

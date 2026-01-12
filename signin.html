@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
+    <link rel="stylesheet" href="./signAuthentication.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Sign in</title>
+</head>
+<body>
+    <section>
+        <div class="container1">
+            
+        </div>
+        <div class="container1-content">
+            <h1>Welcome back!</h1>
+            <p>Log in to continue your shopping experience, access your saved items, and enjoy personalized deals created just for you. Stay connected to your orders, track deliveries, and discover new products recommended based on your interests.</p>
+        </div>
+        
+        
+        <div class="container2">
+            <div class="InputFieldContainer">
+                <div class="InputField">
+                    <label for="">
+                        <h3>Email</h3>
+                        <input type="email" class="email" placeholder="Enter your email">
+                    </label>
+                    <div class="password">
+                        <label for="">
+                            <h3>Password</h3>
+                            <div class="PasswordInput">
+                                <input type="password" class="Password" placeholder="Enter your password">
+                                <img src="./media/fluent--eye-12-filled.png" class="eye" alt="">
+                            </div>
+                        </label>
+                        <button>Forget password?</button>
+                    </div>
+                    <button class="SignIn">Sign in</button>
+                    <div class="or-container">
+                        <div class="or-line"></div>
+                        <div><p>Or</p></div>
+                        <div class="or-line"></div>
+                    </div>
+                    <div class="SocialMedia">
+                        <button class="google"><img src="./media/icons8-google-64.png" alt=""></button>
+                        <button class="facebook"><img src="./media/icons8-facebook-64.png" alt=""></button>
+                        <button class="twitter"><img src="./media/icons8-twitter-circled-64.png" alt=""></button>
+                    </div>
+                    <div class="signup-option">
+                        <p>Don't have an account yet? <span class="signup">Sign up</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="colorAnimation">
+            <div class="colorAnimation1"></div>
+            <div class="colorAnimation2"></div>
+            <div class="colorAnimation3"></div>
+            <div class="colorAnimation4"></div>
+            <div class="colorAnimation5"></div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script>
+        
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
+        
+        const Password = document.querySelector(".Password")
+        const eye = document.querySelector(".eye")
+        const signup = document.querySelector(".signup")
+        const SignIn = document.querySelector(".SignIn")
+        let check = true
+
+        eye.addEventListener("click", () => {
+            if (Password.value !== ""){
+                if(check === true){
+                
+                    Password.type="text"
+                    check = false
+                    eye.src = "./media/fluent--eye-off-16-filled.png";
+
+                }else{
+                    
+                    Password.type="password"
+                    check = true
+                    eye.src = "./media/fluent--eye-12-filled.png";
+
+                }
+            }else{
+                eye.src = "./media/fluent--eye-12-filled.png";
+            }
+            
+        })
+
+        SignIn.addEventListener("click", async () => {
+            const email = document.querySelector(".email").value.trim();
+            const password = Password.value.trim();
+
+            if (!email || !password) {
+                alert("You be thief😂: Account not found, sign up or recheck")
+                // errorMsg.textContent = "Email and password are required";
+                return;
+            }
+
+            const { data, error } = await supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
+
+            if (error) {
+                // 🔴 USER DOES NOT EXIST OR WRONG PASSWORD
+                alert("You be thief😂: Account not found, sign up or recheck")
+                return;
+            }
+
+            // ✅ USER EXISTS AND LOGGED IN
+            window.location.href = "index.html";
+        });
+
+
+        signup.addEventListener("click", () => {
+            window.location.href=`signup.html`
+        })
+
+        // SignIn.addEventListener("click", () => {
+        //     async function login() {
+        //         const email = document.querySelector(".email").value;
+        //         const password = Password.value;
+
+        //         const { data, error } = await supabase.auth.signInWithPassword({
+        //             email,
+        //             password
+        //         });
+
+        //         if (error) {
+        //             alert(error.message);
+        //         } else {
+        //             alert("Login successful!");
+        //             window.location.href = `index.html`
+        //         }
+        //     }
+        // })
+        
+        
+
+    </script>
+</body>
+</html>

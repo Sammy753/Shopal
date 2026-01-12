@@ -76,15 +76,64 @@
                     </ul>
                 </div>
             </nav>
+            <nav class="navbar2-tab">
+                
+                <div class="Categories-navbar">
+                    <img src="./media/Storefront.png" alt="">
+                    <p>CATEGORIES</p>
+                    <div class="Search-input-tab">
+                        <img src="./media/Vector search.png" alt="">
+                        <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                    </div>
+                </div>
+
+                
+
+                <div class="Hamburger-lap">
+                    <img src="./media/icons8-hamburger-240.png" class="Hamburger2" alt="Hamburger">
+                </div>
+            </nav>
             <hr>
+        </nav>
+        <nav class="mobile-nav">
+            <nav class="nav1">
+                <div class="logo-And-Search">
+                    <a href="./index.html">
+                        <div class="Logo">
+                            <img src="./media/Purple_Blue_Yellow_Modern_S_Letter_Company_Logo-removebg-preview 2.png" class="logo" alt="Logo">
+                            <p>SHOPAL</p>
+                        </div>
+                    </a>                    
+                </div>
+                <div class="Hamburger-Cart">
+                    <div class="Hamburger">
+                        <img src="./media/icons8-hamburger-240.png" class="Hamburger" alt="Hamburger">
+                    </div>
+                    <div class="Cart">
+                        <a href="./cart.html">
+                            <div class="Cart-adder hidden" id="Cart-adder"></div>
+                            <img src="./media/Frame 1.png" class="cart-img" alt="Cart">
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <nav class="nav2">
+                <div class="Search-input">
+                    <img src="./media/Vector search.png" alt="">
+                    <input type="text" placeholder="Search for Products" class="search-nav" id="search-nav"/>
+                </div>
+            </nav>
         </nav>
         <hr>
         <div class="Cart-adder-message hidden" id="Cart-adder-message">
             
         </div>
+        
+        <div class="navpop hidden"></div>
     </header>
     <section>
         <main>
+            <div class="profile"></div>
             <div class="Track"></div>
             <div class="heading"></div>
             <div class="AllProduct"></div>
@@ -169,8 +218,11 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+        const Profile = document.querySelector(".profile")
         const AllProduct = document.querySelector(".AllProduct")
+        const CartAdder = document.querySelectorAll(".Cart-adder")
         const CartAdderMessage = document.querySelector(".Cart-adder-message")
         const ProceedtoPayment = document.querySelector(".Proceed-to-Payment")
         const Total = document.querySelector(".Total")
@@ -178,6 +230,11 @@
         const hrTwo = document.querySelector(".hr2")
         const heading = document.querySelector(".heading")
         const Null = document.querySelector(".null")
+        const navpop = document.querySelector(".navpop")
+        const hamburger = document.querySelector(".Hamburger")
+        const hamburgerLap = document.querySelector(".Hamburger-lap")
+        let setcheck = false
+        const ProfileImage = document.querySelector(".Profile-image")
 
         let Cart = JSON.parse(localStorage.getItem("Cart")) || [];
         let itemBought = JSON.parse(localStorage.getItem("itemBought")) || [];
@@ -187,17 +244,222 @@
             localStorage.setItem("itemBought", JSON.stringify(itemBought))
         }
 
-        
-        const CartAdder = document.querySelector("#Cart-adder")
-
+                
         if (Cart.length > 0) {
-            CartAdder.innerHTML = `<p>${Adder(Cart)}</p>`;
+            CartAdder.forEach( add => add.innerHTML = `<p>${adder(Cart)}</p>`);
+            console.log(Cart)
+        }
+                
+            
+        const supabaseUrl = "https://viphpfmfsxvlqxazlqxh.supabase.co";
+        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZpcGhwZm1mc3h2bHF4YXpscXhoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQ4MDQzNjYsImV4cCI6MjA4MDM4MDM2Nn0.rLwimKfftqlT7ZLh2_npUNq-yfHHbzBTJFiGc1ooCAY";
+        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey); 
 
+        // const {data: {session}} = await supabaseClient.auth.getSession()
+
+        // let userName;
+        // if(session){
+        //     const UserName = session.user.user_metadata.fullName;
+        //     console.log("User name:", UserName);
+
+        //     userName = UserName
+        // }
+
+
+        async function Check() {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                console.log(data)
+                // alert("log in alaye")
+                ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                    
+                let SignIn = ProfileImage.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+            }else{
+
+                let userName = data.user.user_metadata.userName
+                let email = data.user.user_metadata.email
+
+                Profile.innerHTML = `
+                    <div class="customer-profile">
+                        <h2>Good day ${userName}, this is your profile</h2>
+                        <p>Customer Name: <span>${userName}</span></p>
+                        <p>Customer Email: <span>${email}</span></p>
+                        
+                    </div>
+                    
+                `
+
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage.innerHTML= `<div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="logout"><div class="logout">
+                        <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    </div>
+                </div>`
+
+                let Profiles = ProfileImage.querySelector(".profile")
+                Profiles.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage.querySelector(".logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            }
+            
         }
 
-        function Adder(Cart){
+        Check();
+
+        async function Check2(ProfileImage2) {
+            const {data} = await supabaseClient.auth.getUser()
+            if(!data.user){
+                // alert("log in alaye")
+                // ProfileImage.innerHTML= `<button class="SignIn">Sign in</button>`
+                
+                console.log(data)
+                ProfileImage2.innerHTML= `<button class="SignIn" >Sign in</button>`
+                
+                let SignIn = ProfileImage2.querySelector(".SignIn")
+                SignIn.addEventListener("click", () => window.location.href = "signin.html")
+
+            }else{
+
+                let userName = data.user.user_metadata.userName || "User"
+                if(userName.length > 10){
+                    userName = userName.slice(0, 3) + "..."
+                }
+
+
+                ProfileImage2.innerHTML = `<hr />
+                <div class="profile-session">
+                    <div class="profile"><div class="Profile">
+                        <img src="./media/Profile.png" class="profile-image" alt="profile-image" />
+                    </div>
+                    <p>${userName}</p>
+                    </div>
+                    <div class="Logout">
+                        <div class="logout">
+                            <img src="./media/logout.png" class="profile-image" alt="profile-image" />
+                        </div>
+                        <p>Logout</p>
+                    </div>
+                </div>`
+
+                let Profile = ProfileImage2.querySelector(".profile")
+                Profile.addEventListener("click", () => {
+                    window.location.href = "ordertrack.html";
+                })
+
+                let logout = ProfileImage2.querySelector(".Logout")
+                logout.addEventListener("click", async () => {
+                    await supabaseClient.auth.signOut();
+                    window.location.href = "signin.html";
+                })
+            
+            }
+        }
+
+
+        function saveToLocalStorage(){
+            localStorage.setItem("Cart", JSON.stringify(Cart))
+        }
+
+        hamburgerLap.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>            
+                    </div>
+                `
+
+            }else{
+                navpop.classList.add("hidden")
+            }
+
+            setcheck = true
+        })
+
+        hamburger.addEventListener("click", () => {
+            if(setcheck === false){
+                navpop.classList.remove("hidden")
+                navpop.innerHTML = `
+                    <div class="pop">
+                        <div class="location-And-Order">
+                            <div class="location-nav">
+                                <a href="">
+                                    <img src="./media/reliance_hmo 1.png" alt="">
+                                    <p>Uyo</p>
+                                </a>
+                            </div>
+                            <div class="order-nav">
+                                <a href="./ordertrack.html">
+                                    <img src="./media/Vector.png" alt="">
+                                    <p>Order</p>
+                                </a>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="ul-navbar">
+                            <ul>
+                                <li><a href="./CLOTHINGS.html">CLOTHINGS</a></li>
+                                <li><a href="./SHOES.html">SHOES</a></li>
+                                <li><a href="./ELECTRONICS.html">ELECTRONICS</a></li>
+                                <li><a href="./GADGETS.html">GADGETS</a></li>
+                                <li><a href="./JEWELRY.html">JEWELRY</a></li>
+                                <li><a href="./BEAUTY.html">BEAUTY</a></li>
+                                <li><a href="./HEALTH.html">HEALTH & MEDICALS</a></li>
+                            </ul>
+                        </div>
+                        <div class="Profile-image2"></div>
+                    
+                    </div>
+                `
+
+                
+                const ProfileImage2 = navpop.querySelector(".Profile-image2")
+
+                Check2(ProfileImage2)
+
+            }else{
+                navpop.classList.add("hidden")
+            }
+
+            setcheck = true
+        })
+
+        navpop.addEventListener("click", () => {
+            navpop.classList.add("hidden")
+            setcheck = false
+        })
+
+
+        function adder(Cart){
             if (Cart.length > 0){
-                CartAdder.classList.remove("hidden")
+                CartAdder.forEach(add => add.classList.remove("hidden"))
                 let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
                 return cartShower;
             }
@@ -213,10 +475,11 @@
             AllProduct.classList.add("no-cart")
             AllProduct.innerHTML = `
                 
-                <button class="but" onclick="window.location.href= 'index.html'">Shop Now</button>
+                <img src="./mediaspeP/Rectangle 131.png" class="productCard-img2" alt="">
                 <p class="sapaa">
                     You have clear order history werey😭😂. Go to shop to spend your last card and embrace sapa😂🤣
                 </p>
+                <button class="but" onclick="window.location.href='index.html'">Shop Now</button>
             `
             Null.innerHTML = ""
             document.querySelector(".imageP").innerHTML = ""
@@ -232,6 +495,24 @@
         }
 
         function DisplayProducts(Products){
+
+            if (Products.length === 0) {
+                AllProduct.classList.add("no-cart")
+                AllProduct.innerHTML = `
+                    
+                    <img src="./mediaspeP/Rectangle 131.png" class="productCard-img2" alt="">
+                    <p class="sapaa">
+                        No Product available werey😭😂. You can check order to view ordered product or go to shop to spend your last card and embrace sapa😂🤣
+                    </p>
+                    <button class="but" onclick="window.location.href='index.html'">Shop Now</button>
+                `
+                Null.innerHTML = ""
+                document.querySelector(".imageP").innerHTML = ""
+                CartAdder.classList.add("hidden")
+                heading.innerHTML = ""
+                return; // STOP here
+            }
+            
             AllProduct.innerHTML = "";
             Products.map((item, index, arr) => {
                 let productCard = document.createElement("div")
@@ -255,7 +536,11 @@
                 </div>
                 `
                 if (itemBought.length > 0) {
-                    heading.innerHTML = `<h1>Item Bought ${adder(itemBought)}</h1>`
+                    if (itemBought.length > 1){
+                        heading.innerHTML = `<h1>${adder(itemBought)} Item Boughts</h1>`
+                    }else{
+                        heading.innerHTML = `<h1>${adder(itemBought)} Item Bought</h1>`
+                    }
 
 
                             
@@ -264,7 +549,7 @@
                         
                     `
                     Total.innerHTML = `
-                    <p class="history-content">You've bought ${adder(itemBought)} products worth ($${(subtotal(Cart))})</p>`
+                    <p class="history-content">You've bought ${adder(itemBought)} products worth ($${(subtotal(Cart))}) in your order history</p>`
                     let checkout = ProceedtoPayment.querySelector(".checkout")
                     checkout.addEventListener("click", () => {
                         itemBought = []; 
@@ -303,6 +588,8 @@
             // let checkProduct = Cart.find(prod => prod.id === pid)
                 itemBought = itemBought.filter(prod => prod.title !== title)
                 saveToLocalStorage()
+                
+                window.location.href = `ordertrack.html`
                 DisplayProducts(itemBought)
         }
 
@@ -321,16 +608,6 @@
             saveToLocalStorage()
             
             // CartSubMESSAGE()
-        }
-
-        function adder(Cart){
-            if (Cart.length > 0){
-                let cartShower = Cart.reduce((sum, item) => sum + item.quantity, 0);
-                return cartShower;
-            }
-
-            saveToLocalStorage()
-
         }
 
 
