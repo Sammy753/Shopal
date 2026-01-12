@@ -1593,8 +1593,8 @@ footer p{
     }
     .productCard-img2{
         width: 50%;
-        /* display: none;
-        height: 80%; */
+        display: none;
+        height: 80%;
     }
     .span1{
         font-size: 10px;

@@ -1397,6 +1397,64 @@ input::placeholder{
         padding-top: 20px;
         padding-bottom: 30px;
     }
+    
+    .SignIn{
+        border-style: none;
+        width: 120px;
+        height: 30px;
+        /* padding: 8px 1rem; */
+        font-size: 10px;
+        font-weight: 500;
+        background-color: #f97316;
+        color: white;
+        border-radius: 4px;
+        transition: 0.3s ease-in-out;
+        margin: 15px;
+    }
+    .SignIn:hover{
+        background-color: #ea580c;
+    }
+    
+    .profile-session{
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        gap: 1rem;
+        flex-direction: column;
+        padding: 1rem 0px;
+        margin: 0;
+    }
+    .profile, .Logout{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+    }
+    .profile p{
+        font-weight: 600;
+    }
+    .Profile{
+        width: 30px;
+        height: 30px;
+        border: 2px solid black;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .Profile img{
+        width: 20px;
+    }
+    .logout{
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
+    .logout img{
+        width: 20px;
+    }
 }
 
 

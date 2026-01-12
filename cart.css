@@ -1139,7 +1139,7 @@ footer p{
         color: white;
         border-radius: 4px;
         transition: 0.3s ease-in-out;
-        margin: 15px 0px;
+        margin: 15px;
     }
     .SignIn:hover{
         background-color: #ea580c;
@@ -1539,8 +1539,8 @@ footer p{
     }
     .productCard-img2{
         width: 50%;
-        /* display: none;
-        height: 80%; */
+        display: none;
+        height: 80%;
     }
     .span1{
         font-size: 10px;
@@ -1770,7 +1770,7 @@ footer p{
         color: white;
         border-radius: 4px;
         transition: 0.3s ease-in-out;
-        margin: 15px 0px;
+        margin: 15px;
     }
     .SignIn:hover{
         background-color: #ea580c;
