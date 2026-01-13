@@ -1616,6 +1616,9 @@ footer p{
         justify-content: center;
         gap: 10px;
     }
+    .card-content span{
+        font-weight: 600;
+    }
     .card-content p{
         display: flex;
         align-items: center;
