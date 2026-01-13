@@ -3146,3 +3146,10 @@ footer p{
         display: none;
     }
 }
+
+    .card-content span, span p{
+        font-weight: 600;
+    }
+    .card-content .span5{
+        font-weight: 800;
+    }
