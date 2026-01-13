@@ -825,6 +825,7 @@ input::placeholder{
         height: 100%;
         background-color: white;
         border-radius: 0px 10px 10px 0px;
+        padding: 15px;
     }
     .logo-And-Search a{
         text-decoration: none;
@@ -878,7 +879,7 @@ input::placeholder{
         justify-content: center;
         flex-direction: column;
         gap: 1.5rem;
-        padding: 15px;
+        padding: 15px 0px;
     }
     .order-nav a, .location-nav a{
         display: flex;
@@ -958,7 +959,7 @@ input::placeholder{
         justify-content: center;
         flex-direction: column;
         gap: 1.5rem;
-        padding: 15px;
+        padding: 15px 0px;
     }
     .ul-navbar ul li{
         list-style: none;
