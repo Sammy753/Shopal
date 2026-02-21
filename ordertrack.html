@@ -373,10 +373,6 @@
         }
 
 
-        function saveToLocalStorage(){
-            localStorage.setItem("Cart", JSON.stringify(Cart))
-        }
-
         hamburgerLap.addEventListener("click", () => {
             if(setcheck === false){
                 navpop.classList.remove("hidden")
@@ -468,7 +464,7 @@
 
         }
 
-        DisplayProducts(itemBought)
+        // DisplayProducts(itemBought)
         if (itemBought.length > 0) {
             DisplayProducts(itemBought)
         }else{
@@ -482,7 +478,7 @@
                 <button class="but" onclick="window.location.href='index.html'">Shop Now</button>
             `
             Null.innerHTML = ""
-            document.querySelector(".imageP").innerHTML = ""
+            // document.querySelector(".imageP").innerHTML = ""
             
             
         }
@@ -507,8 +503,8 @@
                     <button class="but" onclick="window.location.href='index.html'">Shop Now</button>
                 `
                 Null.innerHTML = ""
-                document.querySelector(".imageP").innerHTML = ""
-                CartAdder.classList.add("hidden")
+                // document.querySelector(".imageP").innerHTML = ""
+                CartAdder.forEach(cart => cart.classList.add("hidden"))
                 heading.innerHTML = ""
                 return; // STOP here
             }
@@ -550,12 +546,14 @@
                     `
                     Total.innerHTML = `
                     <p class="history-content">You've bought ${adder(itemBought)} products worth ($${(subtotal(Cart))}) in your order history</p>`
+
                     let checkout = ProceedtoPayment.querySelector(".checkout")
                     checkout.addEventListener("click", () => {
-                        itemBought = []; 
+                        itemBought = [];
                         saveToLocalStorage();
-                        window.location.href = `ordertrack.html`
+                        window.location.href = `ordertrack.html`;
                     })
+
                     hr.innerHTML = `<hr/>`
                     hrTwo.innerHTML = `<hr/>`
                     // DisplayProducts(Cart)
@@ -575,7 +573,7 @@
                 let Delete = productCard.querySelector(".Delete")
                 Delete.addEventListener("click", () => {
                     
-                    DeleteEvent(item.title)
+                    DeleteEvent(item.title, item[index])
                     DisplayProducts(itemBought)
                 })
             })
@@ -584,9 +582,10 @@
 
         }
         
-        function DeleteEvent(title){
+        function DeleteEvent(title, Index){
             // let checkProduct = Cart.find(prod => prod.id === pid)
-                itemBought = itemBought.filter(prod => prod.title !== title)
+                itemBought = itemBought.filter((prod, index ) => 
+                    prod.title !== title && index !== Index)
                 saveToLocalStorage()
                 
                 DisplayProducts(itemBought)
@@ -663,10 +662,6 @@
 
             saveToLocalStorage()
             
-        }
-
-        function changeImage(img) {
-            document.getElementById("mainImage").src = img
         }
 
         saveToLocalStorage()

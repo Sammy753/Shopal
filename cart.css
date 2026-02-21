@@ -919,6 +919,9 @@ footer p{
         /* display: none; */
         /* height: 80%; */
     }
+    .p2{
+        display: none;
+    }
     .span1{
         font-size: 10px;
         font-weight: 600;
